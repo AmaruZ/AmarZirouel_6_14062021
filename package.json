@@ -1,0 +1,23 @@
+{
+  "name": "amarzirouel_6_14062021",
+  "version": "1.0.0",
+  "description": "projet 6 OC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch ./sass/main.scss:./public/main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AmaruZ/AmarZirouel_6_14062021.git"
+  },
+  "author": "AmaruZ",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AmaruZ/AmarZirouel_6_14062021/issues"
+  },
+  "homepage": "https://github.com/AmaruZ/AmarZirouel_6_14062021#readme",
+  "devDependencies": {
+    "eslint": "^7.28.0"
+  }
+}
