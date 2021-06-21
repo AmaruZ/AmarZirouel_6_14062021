@@ -1,0 +1,13 @@
+.tags{
+
+    border: solid 0.5px $color-border;
+    border-radius: 11px;
+    padding: 3px 7px;
+    cursor: pointer;
+    margin-right: 5px;
+    &:hover{
+        color: white;
+        background-color: $color-primary;
+    }
+
+}

@@ -37,7 +37,7 @@ const addPhotographerInDOM = (photographer) =>{
                                 "<p class=\"photographer__text\"><span class=\"photographer__localisation\">" + photographer.city + ", " + photographer.country + "</span>"+
                                 "<span class=\"photographer__tagline\">" + photographer.tagline + "</span>"+
                                 "<span class=\"photographer__price\">" + photographer.price + "</span></p>"+
-                                "<ul class=\"photographer__tags\"> " + tagInList(photographer.tags) + "</ul>";
+                                "<div class=\"photographer__tags\"> " + tagInList(photographer.tags) + "</div>";
                                 
     console.log(divPhotographer);
 }
@@ -45,7 +45,7 @@ const addPhotographerInDOM = (photographer) =>{
 const tagInList = (tags) =>{
     let result = "";
     tags.forEach(tag => {
-        result += "<li>#"+ tag.charAt(0).toUpperCase() + tag.slice(1) + "</li>";
+        result += "<span class=\"tags\">#"+ tag.charAt(0).toUpperCase() + tag.slice(1) + "</span>";
     });
     return result;
 }
