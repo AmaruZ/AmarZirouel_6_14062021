@@ -9,5 +9,13 @@
         color: white;
         background-color: $color-primary;
     }
+    &:focus{
+        color: white;
+        background-color: $color-primary;
+    }
+    &-active{
+        color: white;
+        background-color: $color-primary;
+    }
 
 }

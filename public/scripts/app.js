@@ -1,6 +1,7 @@
 const wrapperPhotographers = document.querySelector(".wrapper");
-let photographers= [];
+const spanTags = document.getElementsByClassName("navigation__link");
 
+let photographers= [];
 
 
 fetch("./scripts/FishEyeData.json")
@@ -11,8 +12,6 @@ fetch("./scripts/FishEyeData.json")
         for (let photographer in data.photographers){
             photographers[photographer] = data.photographers[photographer];
             addPhotographerInDOM(photographers[photographer]);
-
-
             //console.log(photographers[photographer]);
         }
     });
@@ -36,10 +35,16 @@ const addPhotographerInDOM = (photographer) =>{
                                 "<h2 class=\"photographer__name\">" + photographer.name + "</h2></a>"+
                                 "<p class=\"photographer__text\"><span class=\"photographer__localisation\">" + photographer.city + ", " + photographer.country + "</span>"+
                                 "<span class=\"photographer__tagline\">" + photographer.tagline + "</span>"+
-                                "<span class=\"photographer__price\">" + photographer.price + "</span></p>"+
+                                "<span class=\"photographer__price\">" + photographer.price + "€/jour</span></p>"+
                                 "<div class=\"photographer__tags\"> " + tagInList(photographer.tags) + "</div>";
                                 
-    console.log(divPhotographer);
+    //console.log(divPhotographer);
+}
+
+const flushPhotographersInDOM = () =>{
+    while(wrapperPhotographers.firstChild){
+        wrapperPhotographers.firstChild.remove();
+    }
 }
 
 const tagInList = (tags) =>{
@@ -49,3 +54,32 @@ const tagInList = (tags) =>{
     });
     return result;
 }
+
+Array.from(spanTags, tag =>{
+    tag.addEventListener("click", ()=>{
+        //let photographersFiltered = [];
+        flushPhotographersInDOM();
+        if(tag.classList.contains("tags-active")){
+            tag.classList.toggle("tags-active");
+            photographers.forEach(photographer =>{
+                addPhotographerInDOM(photographer);
+            });
+        } else{
+            Array.from(spanTags, tag =>{
+                if(tag.classList.contains("tags-active")){
+                    tag.classList.toggle("tags-active");
+                }
+            });
+            tag.classList.toggle("tags-active");
+            photographers.forEach(photographer =>{
+                photographer.tags.forEach(ptag =>{
+                    if("#"+ ptag.charAt(0).toUpperCase() + ptag.slice(1) == tag.textContent){
+                        addPhotographerInDOM(photographer);
+                    }
+                });
+            });
+        }
+        
+    });
+});
+

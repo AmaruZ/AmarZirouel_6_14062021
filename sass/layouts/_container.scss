@@ -1,0 +1,44 @@
+.content{
+    padding-top: 40px;
+    padding-left: 50px;
+}
+
+.wrapper{
+    padding-top: 100px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+.photographer{
+    width: 301px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin-right: 100px;
+    margin-bottom: 50px;
+    &__link{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+    }
+    &__avatar{
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+    }
+    &__text{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+    }
+    &__localisation{
+        margin-bottom: 3px;
+    }
+    &__tagline{
+        margin-bottom: 3px;
+    }
+    &__price{
+        margin-bottom: 6px;
+    }
+}
