@@ -7,15 +7,15 @@
     padding-top: 100px;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    
     width: 100%;
 }
 .photographer{
-    width: 301px;
+    width: 342px;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    margin-right: 100px;
+    margin-right: 111px;
     margin-bottom: 50px;
     &__link{
         display: flex;
@@ -26,6 +26,7 @@
         border-radius: 50%;
         width: 200px;
         height: 200px;
+        object-fit: cover;
     }
     &__text{
         display: flex;
@@ -39,6 +40,6 @@
         margin-bottom: 3px;
     }
     &__price{
-        margin-bottom: 6px;
+        margin-bottom: 10px;
     }
 }

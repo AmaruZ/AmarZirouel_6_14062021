@@ -38,6 +38,7 @@ h2 {
   font-size: 3.6rem;
   line-height: 47px;
   color: #D3573C;
+  inline-size: max-content;
 }
 
 .tags {
@@ -49,7 +50,7 @@ h2 {
   color: #901C1C;
 }
 
-.photographer__localisation {
+.photographer__localisation, .infos__localisation {
   font-family: DM Sans;
   font-style: normal;
   font-weight: 500;
@@ -58,7 +59,7 @@ h2 {
   text-align: center;
   color: #901C1C;
 }
-.photographer__tagline {
+.photographer__tagline, .infos__tagline {
   font-family: DM Sans;
   font-style: normal;
   font-weight: 500;
@@ -66,7 +67,7 @@ h2 {
   line-height: 13px;
   color: #000000;
 }
-.photographer__price {
+.photographer__price, .infos__price {
   font-family: DM Sans;
   font-style: normal;
   font-weight: normal;
@@ -119,16 +120,15 @@ h2 {
   padding-top: 100px;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
   width: 100%;
 }
 
 .photographer {
-  width: 301px;
+  width: 342px;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  margin-right: 100px;
+  margin-right: 111px;
   margin-bottom: 50px;
 }
 .photographer__link {
@@ -140,6 +140,7 @@ h2 {
   border-radius: 50%;
   width: 200px;
   height: 200px;
+  object-fit: cover;
 }
 .photographer__text {
   display: flex;
@@ -153,7 +154,7 @@ h2 {
   margin-bottom: 3px;
 }
 .photographer__price {
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 
 /*# sourceMappingURL=main.css.map */

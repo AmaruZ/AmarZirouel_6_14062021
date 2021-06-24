@@ -1,44 +1,85 @@
+import { fetchPhotographersJSON } from "./getData.js";
+
 const wrapperPhotographers = document.querySelector(".wrapper");
 const spanTags = document.getElementsByClassName("navigation__link");
 
-let photographers= [];
+export let photographers= [];
 
-
-fetch("./scripts/FishEyeData.json")
-    .then(function(resp){
-        return resp.json();
-    })
-    .then(function(data){
+fetchPhotographersJSON()
+    .then(data =>{
         for (let photographer in data.photographers){
             photographers[photographer] = data.photographers[photographer];
             addPhotographerInDOM(photographers[photographer]);
-            //console.log(photographers[photographer]);
         }
-    });
-
-
-const addDescription = (photographers) =>{
-    if (photographers.description != ""){
-        switch(photographers.name){
-            case "Mimi Keel": photographers.description = "Voir le beau dans le quotidien";
-            break;
-        }
-    }
-}
+    })
+    .finally(()=>{
+        Array.from(spanTags, tag =>{
+            tag.addEventListener("click", ()=>{
+                flushPhotographersInDOM();
+                if(tag.classList.contains("tags-active")){
+                    tag.classList.toggle("tags-active");
+                    tag.blur();
+                    photographers.forEach(photographer =>{
+                        addPhotographerInDOM(photographer);
+                    });
+                } else{
+                    for(let i=spanTags.length; i > 0; i--){
+                        if(spanTags[i-1].classList.contains("tags-active")){
+                            spanTags[i-1].classList.toggle("tags-active")
+                            break;
+                        }
+                    }
+                   /* Array.from(spanTags, tag =>{
+                        if(tag.classList.contains("tags-active")){
+                            tag.classList.toggle("tags-active");
+                        }
+                    });*/
+                    tag.classList.toggle("tags-active");
+                    for(let i=0; i < photographers.length; i++){
+                        for(let j=photographers[i].tags.length; j > 0; j--){
+                            if("#"+ photographers[i].tags[j-1].charAt(0).toUpperCase() + photographers[i].tags[j-1].slice(1) == tag.textContent ){
+                                addPhotographerInDOM(photographers[i]);
+                                break;
+                            }
+                        }
+                    }
+                    /*
+                    photographers.forEach(photographer =>{
+                        photographer.tags.forEach(ptag =>{
+                            if("#"+ ptag.charAt(0).toUpperCase() + ptag.slice(1) == tag.textContent){
+                                addPhotographerInDOM(photographer);
+                            }
+                        });
+                    });*/
+                }
+                
+            });
+        });
+    })
 
 const addPhotographerInDOM = (photographer) =>{
     const divPhotographer = document.createElement("div");
     divPhotographer.classList.add("photographer")
     wrapperPhotographers.appendChild(divPhotographer);
-    divPhotographer.innerHTML=  "<a class=\"photographer__link\" href=\"#\">"+
-                                "<img class=\"photographer__avatar\" src=\"./images/Photographers ID Photos/"+ photographer.name.replaceAll(/[^a-zA-Z0-9]/g,"") +".jpg\">"+
+    divPhotographer.innerHTML=  "<a class=\"photographer__link\" href=\"./pages/photographers.html?id="+ photographer.id +"\">"+
+                                //"<img class=\"photographer__avatar\" src=\"./images/Photographers ID Photos/"+ photographer.name.replaceAll(/[^a-zA-Z0-9]/g,"") +".jpg\">"+
+                                "<img class=\"photographer__avatar\" src=\"images/"+ addAvatarToPhotographer(photographer.name) +"\">"+
                                 "<h2 class=\"photographer__name\">" + photographer.name + "</h2></a>"+
                                 "<p class=\"photographer__text\"><span class=\"photographer__localisation\">" + photographer.city + ", " + photographer.country + "</span>"+
                                 "<span class=\"photographer__tagline\">" + photographer.tagline + "</span>"+
                                 "<span class=\"photographer__price\">" + photographer.price + "€/jour</span></p>"+
                                 "<div class=\"photographer__tags\"> " + tagInList(photographer.tags) + "</div>";
-                                
-    //console.log(divPhotographer);
+}
+
+const addAvatarToPhotographer = (name) =>{
+    switch (name){
+        case "Mimi Keel": return "Mimi/Portrait_Nora.jpg";
+        case "Ellie-Rose Wilkens": return "Ellie Rose/Architecture_Horseshoe.jpg";
+        case "Tracy Galindo": return "Tracy/Fashion_Urban_Jungle.jpg";
+        case "Nabeel Bradford" : return "Nabeel/Travel_Outdoor_Baths.jpg";
+        case "Rhode Dubois" : return "Rhode/Fashion_Melody_Red_on_Stripes.jpg";
+        case "Marcel Nikolic" : return "Marcel/Travel_Tower.jpg";
+    }
 }
 
 const flushPhotographersInDOM = () =>{
@@ -55,31 +96,5 @@ const tagInList = (tags) =>{
     return result;
 }
 
-Array.from(spanTags, tag =>{
-    tag.addEventListener("click", ()=>{
-        //let photographersFiltered = [];
-        flushPhotographersInDOM();
-        if(tag.classList.contains("tags-active")){
-            tag.classList.toggle("tags-active");
-            photographers.forEach(photographer =>{
-                addPhotographerInDOM(photographer);
-            });
-        } else{
-            Array.from(spanTags, tag =>{
-                if(tag.classList.contains("tags-active")){
-                    tag.classList.toggle("tags-active");
-                }
-            });
-            tag.classList.toggle("tags-active");
-            photographers.forEach(photographer =>{
-                photographer.tags.forEach(ptag =>{
-                    if("#"+ ptag.charAt(0).toUpperCase() + ptag.slice(1) == tag.textContent){
-                        addPhotographerInDOM(photographer);
-                    }
-                });
-            });
-        }
-        
-    });
-});
+
 
