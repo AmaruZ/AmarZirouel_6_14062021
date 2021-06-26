@@ -7,10 +7,14 @@ export let photographers= [];
 
 fetchPhotographersJSON()
     .then(data =>{
-        for (let photographer in data.photographers){
+        for(let i = 0; i < data.photographers.length; i++){
+            photographers[i] = data.photographers[i];
+            addPhotographerInDOM(photographers[i]);
+        }
+        /*for (let photographer in data.photographers){
             photographers[photographer] = data.photographers[photographer];
             addPhotographerInDOM(photographers[photographer]);
-        }
+        }*/
     })
     .finally(()=>{
         Array.from(spanTags, tag =>{
