@@ -1,0 +1,18 @@
+.contact{
+    &__button{
+        width: 170px;
+        height: 69px;
+        background-color: $color-primary;
+        color: white;
+        font-size: 2rem;
+        font-family: "DM Sans";
+        font-style: normal;
+        font-weight: bold;
+        line-height: 2.6rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+    }
+}

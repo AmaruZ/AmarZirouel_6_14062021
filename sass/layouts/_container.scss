@@ -1,21 +1,32 @@
 .content{
     padding-top: 40px;
-    padding-left: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+    width: 1240px;
+    &__medias{
+        margin-left: 100px;
+        margin-right: 100px;
+        width: 1240px;
+    }
 }
+
+
+
 
 .wrapper{
     padding-top: 100px;
     display: flex;
     flex-flow: row wrap;
-    
     width: 100%;
 }
+
+
 .photographer{
     width: 342px;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    margin-right: 111px;
+    margin-right: 70px;
     margin-bottom: 50px;
     &__link{
         display: flex;
@@ -41,5 +52,80 @@
     }
     &__price{
         margin-bottom: 10px;
+    }
+}
+
+.infos{
+    display: flex;
+    position:relative;
+    width: 100%;
+    padding-top: 56px;
+    padding-left: 50px;
+    background-color: #FAFAFA;
+    border-radius: 5px;
+    &__text{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-right: 20px;
+    }
+    &__name{
+        font-size: 4rem;
+        color: $color-secondary;
+        margin-bottom: 20px;
+    }
+    &__localisation{
+        color: $color-primary;
+        font-size: 2.4rem;
+        margin-bottom: 19px;
+        font-weight: 400;
+    }
+    &__tagline{
+        font-size: 1.8rem;
+        line-height: 2.3rem;
+        font-weight: 300;
+        color: #525252;
+        margin-bottom: 15px;
+    }
+    &__tags{
+        margin-bottom: 48px;
+    }
+    &__avatar{
+        position: absolute;
+        right: 114px;
+        width: 150px;
+        height: 150px;
+    }
+}
+
+.medias{
+    &__sort{
+        font-family: "DM Sans";
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 23px;
+        
+        color: #000000;
+    }
+    &__dropdown{
+
+    }
+    &__select{
+        cursor: pointer;
+        appearance: none;
+        width: 170px;
+        color: #FAFAFA;
+        font-family: "DM Sans";
+        font-size: 2.4rem;
+        background-color: #901C1C;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        background-position: 5px 5px;
+    }
+
+    &__option{
+        background-color: $color-primary;
     }
 }

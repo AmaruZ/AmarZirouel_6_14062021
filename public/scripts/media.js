@@ -52,7 +52,6 @@ class Media{
         this.likes = data.likes;
         this.date = data.date;
         this.price = data.price;
-
     }
     
 }
@@ -62,17 +61,11 @@ class Image extends Media{
         super(data);
         this.image = data.image;
     }
-    toString(){
-        return this;
-    }
 }
 class Video extends Media{
     constructor(data){
         super(data);
         this.video = data.video;
-    }
-    toString(){
-        return this;
     }
 }
 

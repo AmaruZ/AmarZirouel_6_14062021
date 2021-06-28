@@ -1,21 +1,16 @@
 * {
   margin: 0;
   padding: 0;
-  text-decoration: none;
   box-sizing: border-box;
 }
 
 a {
   color: black;
+  text-decoration: none;
 }
 
 ul {
   list-style: none;
-}
-
-body {
-  width: 1410px;
-  margin: 0 auto;
 }
 
 html {
@@ -76,6 +71,22 @@ h2 {
   color: #757575;
 }
 
+.contact__button {
+  width: 170px;
+  height: 69px;
+  background-color: #901C1C;
+  color: white;
+  font-size: 2rem;
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: bold;
+  line-height: 2.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
 .tags {
   border: solid 0.5px #C4C4C4;
   border-radius: 11px;
@@ -106,6 +117,12 @@ h2 {
   padding-left: 100px;
 }
 
+.header-photographer {
+  display: block;
+  padding-top: 42px;
+  padding-left: 100px;
+}
+
 .navigation {
   padding-top: 15px;
   padding-right: 50px;
@@ -113,7 +130,14 @@ h2 {
 
 .content {
   padding-top: 40px;
-  padding-left: 50px;
+  margin-left: 100px;
+  margin-right: 100px;
+  width: 1240px;
+}
+.content__medias {
+  margin-left: 100px;
+  margin-right: 100px;
+  width: 1240px;
 }
 
 .wrapper {
@@ -128,7 +152,7 @@ h2 {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  margin-right: 111px;
+  margin-right: 70px;
   margin-bottom: 50px;
 }
 .photographer__link {
@@ -155,6 +179,74 @@ h2 {
 }
 .photographer__price {
   margin-bottom: 10px;
+}
+
+.infos {
+  display: flex;
+  position: relative;
+  width: 100%;
+  padding-top: 56px;
+  padding-left: 50px;
+  background-color: #FAFAFA;
+  border-radius: 5px;
+}
+.infos__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 20px;
+}
+.infos__name {
+  font-size: 4rem;
+  color: #D3573C;
+  margin-bottom: 20px;
+}
+.infos__localisation {
+  color: #901C1C;
+  font-size: 2.4rem;
+  margin-bottom: 19px;
+  font-weight: 400;
+}
+.infos__tagline {
+  font-size: 1.8rem;
+  line-height: 2.3rem;
+  font-weight: 300;
+  color: #525252;
+  margin-bottom: 15px;
+}
+.infos__tags {
+  margin-bottom: 48px;
+}
+.infos__avatar {
+  position: absolute;
+  right: 114px;
+  width: 150px;
+  height: 150px;
+}
+
+.medias__sort {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 23px;
+  color: #000000;
+}
+.medias__select {
+  cursor: pointer;
+  appearance: none;
+  width: 170px;
+  color: #FAFAFA;
+  font-family: "DM Sans";
+  font-size: 2.4rem;
+  background-color: #901C1C;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  background-position: 5px 5px;
+}
+.medias__option {
+  background-color: #901C1C;
 }
 
 /*# sourceMappingURL=main.css.map */

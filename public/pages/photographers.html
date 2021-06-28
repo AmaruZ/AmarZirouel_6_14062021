@@ -11,7 +11,7 @@
 </head>
 <body>
     
-    <header class="header" role="banner">
+    <header class="header-photographer" role="banner">
         <a href="/public/index.html" aria-label="Page d'Accueil">
             <svg role="img" width="200" height="50" viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-describedby="titre description">
                 <title id="titre">Logo FishEye</title>
@@ -26,17 +26,25 @@
             </svg>  
         </a>
     </header>
-    <main class="content">
+    <main class="content__medias">
         <section class="infos">
             <div class="infos__text">
-                <span class="infos__name"></span>
+                <h1 class="infos__name"></h1>
                 <span class="infos__localisation"></span>
                 <span class="infos__tagline"></span>
                 <div class="infos__tags"></div>
             </div>
-            <div class="contact__button">Contactez-moi</div>
+            <a class="contact__button">Contactez-moi</a>
         </section>
         <section class="medias">
+            <div>
+                <label for="sort-by"  class="medias__sort">Trier par</label>
+                <select id="sort-by" class="medias__select">
+                    <option class="medias__option" value="popular">Popularité</option>
+                    <option class="medias__option" value="date">Date</option>
+                    <option class="medias__option" value="title">Titre</option>
+                </select>
+            </div>
 
         </section>
     </main>

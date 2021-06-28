@@ -1,4 +1,5 @@
 import { fetchPhotographersJSON } from "./getData.js";
+import { addAvatarToPhotographer } from "./avatar.js";
 
 const wrapperPhotographers = document.querySelector(".wrapper");
 const spanTags = document.getElementsByClassName("navigation__link");
@@ -73,17 +74,6 @@ const addPhotographerInDOM = (photographer) =>{
                                 "<span class=\"photographer__tagline\">" + photographer.tagline + "</span>"+
                                 "<span class=\"photographer__price\">" + photographer.price + "€/jour</span></p>"+
                                 "<div class=\"photographer__tags\"> " + tagInList(photographer.tags) + "</div>";
-}
-
-const addAvatarToPhotographer = (name) =>{
-    switch (name){
-        case "Mimi Keel": return "Mimi/Portrait_Nora.jpg";
-        case "Ellie-Rose Wilkens": return "Ellie Rose/Architecture_Horseshoe.jpg";
-        case "Tracy Galindo": return "Tracy/Fashion_Urban_Jungle.jpg";
-        case "Nabeel Bradford" : return "Nabeel/Travel_Outdoor_Baths.jpg";
-        case "Rhode Dubois" : return "Rhode/Fashion_Melody_Red_on_Stripes.jpg";
-        case "Marcel Nikolic" : return "Marcel/Travel_Tower.jpg";
-    }
 }
 
 const flushPhotographersInDOM = () =>{
