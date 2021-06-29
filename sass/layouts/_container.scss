@@ -108,9 +108,8 @@
         
         color: #000000;
     }
-    &__dropdown{
 
-    }
+    
     &__select{
         cursor: pointer;
         appearance: none;
@@ -128,4 +127,71 @@
     &__option{
         background-color: $color-primary;
     }
+}
+
+.modal{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.4);
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    &__header{
+        display: flex;
+        justify-content: space-between;
+
+    }
+    &__wrapper{
+        background-color: #DB8876;
+        width: 669px;
+        height: 900px;
+        padding: 35px;
+        
+
+    }
+    &__title, &__photographer{
+        color: black;
+        font-size: 6.4rem;
+        margin-bottom: 20px;
+    }
+    &__label{
+        font-family: "DM Sans";
+        font-size: 3.6rem;
+        color: #312E2E;
+
+    }
+    &__input{
+        height: 68px;
+    }
+    &__textarea{
+        margin-bottom: 26px;
+    }
+
+    &__btn{
+        width: 170px;
+        height: 69px;
+        background-color: $color-primary;
+        color: white;
+        font-size: 2rem;
+        font-family: "DM Sans";
+        font-style: normal;
+        font-weight: bold;
+        line-height: 2.6rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        box-shadow: none;
+        border: none;
+    }
+
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
 }

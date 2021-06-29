@@ -26,7 +26,7 @@
             </svg>  
         </a>
     </header>
-    <main class="content__medias">
+    <main class="content__medias" aria-hidden="false">
         <section class="infos">
             <div class="infos__text">
                 <h1 class="infos__name"></h1>
@@ -34,7 +34,7 @@
                 <span class="infos__tagline"></span>
                 <div class="infos__tags"></div>
             </div>
-            <a class="contact__button">Contactez-moi</a>
+            <a href="#modal" class="contact__button">Contactez-moi</a>
         </section>
         <section class="medias">
             <div>
@@ -48,6 +48,39 @@
 
         </section>
     </main>
+    <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="false" aria-labelledby="modal__title">
+        <div class="modal__wrapper">
+            <div class="modal__header">
+                <h1 id="modal__title" class="modal__title"></h1>
+                
+                <button class="modal__close">Fermer</button>
+                
+            </div>
+            <form action="" method="get" class="form">
+                <div class="form">
+                    
+                    <label class="modal__label" for="firstname">Prénom</label>
+                    <input class="modal__input" type="text" name="firstname" id="firstname" required>
+                </div>
+                <div class="form">
+                    <label class="modal__label" for="lastname">Nom</label>
+                    <input class="modal__input" type="text" name="lastname" id="lastname" required>
+                </div>
+                <div class="form">
+                    <label class="modal__label" for="email">Email</label>
+                    <input class="modal__input" type="email" name="email" id="email" required>
+                </div>
+                <div class="form">
+                    <label class="modal__label" for="message">Votre message</label>
+                    <textarea class="modal__textarea" rows="8" name="message" id="message" required></textarea>
+                </div>
+                <div class="form">
+                    <input class="modal__btn" type="submit" value="Envoyer">
+                </div>
+            </form>
+        </div>
+    </div>
     <script src="/public/scripts/photographers.js" type="module"></script>
+    <script src="/public/scripts/modal.js" type="module"></script>
 </body>
 </html>

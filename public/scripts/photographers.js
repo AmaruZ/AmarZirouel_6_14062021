@@ -5,7 +5,7 @@ import { mediaFactory } from "./media.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const photographerID = urlParams.get("id");
-let photographer = {};
+export let photographer = {};
 let medias = [];
 const wrapperPhotographer = document.querySelector(".infos");
 const namePhotographer = document.querySelector(".infos__name");

@@ -249,4 +249,64 @@ h2 {
   background-color: #901C1C;
 }
 
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+}
+.modal__wrapper {
+  background-color: #DB8876;
+  width: 669px;
+  height: 900px;
+  padding: 35px;
+}
+.modal__title, .modal__photographer {
+  color: black;
+  font-size: 6.4rem;
+  margin-bottom: 20px;
+}
+.modal__label {
+  font-family: "DM Sans";
+  font-size: 3.6rem;
+  color: #312E2E;
+}
+.modal__input {
+  height: 68px;
+}
+.modal__textarea {
+  margin-bottom: 26px;
+}
+.modal__btn {
+  width: 170px;
+  height: 69px;
+  background-color: #901C1C;
+  color: white;
+  font-size: 2rem;
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: bold;
+  line-height: 2.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: none;
+  border: none;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
 /*# sourceMappingURL=main.css.map */
