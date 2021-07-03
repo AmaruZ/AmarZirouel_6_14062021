@@ -105,14 +105,13 @@
         font-weight: bold;
         font-size: 18px;
         line-height: 23px;
-        
         color: #000000;
     }
 
     
     &__select{
         cursor: pointer;
-        appearance: none;
+        //appearance: none;
         width: 170px;
         color: #FAFAFA;
         font-family: "DM Sans";
@@ -180,7 +179,6 @@
         font-style: normal;
         font-weight: bold;
         line-height: 2.6rem;
-
         display: flex;
         align-items: center;
         justify-content: center;
@@ -194,4 +192,33 @@
 .form{
     display: flex;
     flex-direction: column;
+}
+
+.medias{
+    &__wrapper{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+}
+
+.media{
+    &__card{
+        width: 350px;
+    }
+    &__photo{
+        width: 100%;
+        height: 300px;
+        border-radius: 5px;
+    }
+    &__text{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        font-family: "DM Sans";
+        font-weight: 400;
+        font-size: 2.4rem;
+        color: $color-primary;
+    }
+
 }
