@@ -1,5 +1,6 @@
 import { addAvatarToPhotographer } from "./avatar.js";
 import { fetchPhotographersJSON } from "./getData.js";
+import { Lightbox } from "./lightbox.js";
 import { mediaFactory } from "./media.js";
 
 
@@ -16,7 +17,7 @@ const avatarPhotographer = document.createElement("img");
 const wrapperMedias = document.querySelector(".medias__wrapper");
 
 export let photographer = {};
-let medias = [];
+export let medias = [];
 
 
 fetchPhotographersJSON()
@@ -56,6 +57,17 @@ fetchPhotographersJSON()
         avatarPhotographer.classList.add("infos__avatar");
         wrapperPhotographer.appendChild(avatarPhotographer);
         medias.forEach(media => addMediasInDOM(media));
+        const photos = document.querySelectorAll(".media__photo");
+        console.log(photos);
+        photos.forEach(photo => photo.addEventListener("click", e => {
+            // e.preventDefault();
+            // console.log(e.currentTarget);
+            // const lightbox = document.querySelector(".lightbox");
+            // lightbox.style.display = "block";
+            // e.currentTarget.getAttribute("src");
+            console.log(e.currentTarget.getAttribute("src"))
+            new Lightbox(e.currentTarget.getAttribute("src"));
+        }))
     }) 
 
 const addMediasInDOM = (media) =>{
@@ -67,14 +79,15 @@ const addMediasInDOM = (media) =>{
                             + "<div class=\"media__text\"><span class=\"media__title\">"+ media.title + "</span>"
                             + "<span class=\"media__likes\">"+media.likes + "</span></div>";
     } else if(media.video != undefined){
-        mediaCard.innerHTML =  `<video src="../images/${getFolderName(photographer)}${media.video}#t=0.1" type="video/mp4" class="media__photo">Sorry, your browser doesn't support embedded videos.</video>`
+        mediaCard.innerHTML =  `<video width="350" heigth="400" src="../images/${getFolderName(photographer)}${media.video}#t=0.1" type="video/mp4" class="media__photo">Sorry, your browser doesn't support embedded videos.</video>`
                             + "<div class=\"media__text\"><span class=\"media__title\">"+ media.title + "</span>"
                             + "<span class=\"media__likes\">"+media.likes + "</span></div>";
     }
     
-    console.log(mediaCard);
     
 }
+
+
 
 const getFolderName = (photographer) =>{
     switch(photographer.name){

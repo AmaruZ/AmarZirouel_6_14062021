@@ -2,10 +2,8 @@ export function mediaFactory(){
     this.createMedia = function(data){
         let media;
         if(data.image != undefined){
-            Image.prototype = new Media(data);
             media = new Image(data);
         } else if (data.video != undefined){
-            Video.prototype = new Media(data);
             media = new Video(data);
         } else{
             console.log("error");
@@ -14,7 +12,8 @@ export function mediaFactory(){
     }
 }
 
-function Media(data){
+class Media {
+    constructor(data) {
         this.id = data.id;
         this.photographerId = data.photographerId;
         this.title = data.title;
@@ -22,14 +21,21 @@ function Media(data){
         this.likes = data.likes;
         this.date = data.date;
         this.price = data.price;
+    }
 }
 
-let Image = function(data){
-    this.image = data.image;
+class Image extends Media {
+    constructor(data) {
+        super(data);
+        this.image = data.image;
+    }
 }
 
-let Video = function(data){
-    this.video = data.video;
+class Video extends Media {
+    constructor(data) {
+        super(data);
+        this.video = data.video;
+    }
 }
 
 
