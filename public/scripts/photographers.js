@@ -70,7 +70,7 @@ fetchPhotographersJSON()
         }))
     }) 
 
-const addMediasInDOM = (media) =>{
+export const addMediasInDOM = (media) =>{
     const mediaCard = document.createElement("div");
     mediaCard.classList.add("media__card");
     wrapperMedias.appendChild(mediaCard);
@@ -87,7 +87,9 @@ const addMediasInDOM = (media) =>{
     
 }
 
-
+export const flushMediasInDOM = () =>{
+    wrapperMedias.innerHTML = "";
+}
 
 const getFolderName = (photographer) =>{
     switch(photographer.name){

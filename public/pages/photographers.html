@@ -37,18 +37,18 @@
             <a href="#modal" class="contact__button">Contactez-moi</a>
         </section>
         <section class="medias">
-            <div>
-                <label for="sort-by"  class="medias__sort">Trier par</label>
-                <select id="sort-by" class="medias__select">
-                    <option class="medias__option" value="popular">Popularité</option>
-                    <option class="medias__option" value="date">Date</option>
-                    <option class="medias__option" value="title">Titre</option>
-                </select>
+            <div class="sort">
+                <label for="sort-by" class="sort__title">Trier par</label>
+                <div id="sort-by" class="sort__dropdown">
+                    <span class="sort__option__selected" role="button" aria-label="listbox" aria-haspopup="true">Popularité<img src="../images/chevron.svg" class="chevron_down"/></span>
+                    <div class="sort__options">
+                        <div class="sort__option sort__option-1" tabindex="0"><span>Popularité</span><img src="../images/chevron.svg" class="chevron_up"/></div>
+                        <span class="sort__option sort__option-2" tabindex="0">Date</span>
+                        <span class="sort__option sort__option-3" tabindex="0">Titre</span>
+                    </div>
+                </div>
             </div>
-            <div class="medias__wrapper">
-                
-            </div>
-
+            <div class="medias__wrapper"></div>
         </section>
     </main>
     <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="false" aria-labelledby="modal__title">
@@ -92,5 +92,6 @@
     <script src="/public/scripts/photographers.js" type="module"></script>
     <script src="/public/scripts/modal.js" type="module"></script>
     <script src="/public/scripts/lightbox.js" type="module"></script>
+    <script src="/public/scripts/dropDown.js" type="module"></script>
 </body>
 </html>
