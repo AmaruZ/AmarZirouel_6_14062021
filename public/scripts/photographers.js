@@ -32,17 +32,6 @@ fetchPhotographersJSON()
             if(data.media[i-1].photographerId == photographer.id){
                 let media = new mediaFactory().createMedia(data.media[i-1]);
                 medias.push(media);
-/*              if(data.media[i-1].video != undefined){
-                    media = Object.assign(Media(data), Video(data.media[i-1].video))
-                    console.log(media);
-                    medias.push(media);
-                } else if(data.media[i-1].image != undefined){
-                    //media.createMedia("image");
-                    console.log(media, data.media[i-1].image);
-                    media = Object.assign(Media(data), Image(data.media[i-1].image))
-                    
-                    medias.push(media);
-                }*/
             }
         }
     }) .finally( () =>{
@@ -50,7 +39,7 @@ fetchPhotographersJSON()
         localisationPhotographer.innerHTML = photographer.city + ", " + photographer.country;
         taglinePhotographer.innerHTML = photographer.tagline;
         photographer.tags.forEach(tag => {
-            tagsPhotographer.innerHTML+="<span class=\"tags\">#" + tag + "</span>" ;
+            tagsPhotographer.innerHTML+=`<span class="tags">#${tag}</span>` ;
         });
         avatarPhotographer.setAttribute("src", "../images/"+ addAvatarToPhotographer(photographer.name));
         avatarPhotographer.classList.add("photographer__avatar");
@@ -60,13 +49,8 @@ fetchPhotographersJSON()
         const photos = document.querySelectorAll(".media__photo");
         console.log(photos);
         photos.forEach(photo => photo.addEventListener("click", e => {
-            // e.preventDefault();
-            // console.log(e.currentTarget);
-            // const lightbox = document.querySelector(".lightbox");
-            // lightbox.style.display = "block";
-            // e.currentTarget.getAttribute("src");
             console.log(e.currentTarget.getAttribute("src"))
-            new Lightbox(e.currentTarget.getAttribute("src"));
+            new Lightbox(e.currentTarget.getAttribute("src")).init();
         }))
     }) 
 
@@ -75,13 +59,13 @@ export const addMediasInDOM = (media) =>{
     mediaCard.classList.add("media__card");
     wrapperMedias.appendChild(mediaCard);
     if(media.image!= undefined){
-        mediaCard.innerHTML =   "<img class=\"media__photo\" src=\"../images/" + getFolderName(photographer) + media.image + "\"/>"
-                            + "<div class=\"media__text\"><span class=\"media__title\">"+ media.title + "</span>"
-                            + "<span class=\"media__likes\">"+media.likes + "</span></div>";
+        mediaCard.innerHTML =  `<img class="media__photo" src="../images/${getFolderName(photographer)}${media.image}"/>
+                                <div class="media__text"><span class="media__title">${media.title}</span>
+                                <div class="media__likes">${media.likes} <img src="../images/heart.svg" class="media__heart"/></div></div>`;
     } else if(media.video != undefined){
-        mediaCard.innerHTML =  `<video width="350" heigth="400" src="../images/${getFolderName(photographer)}${media.video}#t=0.1" type="video/mp4" class="media__photo">Sorry, your browser doesn't support embedded videos.</video>`
-                            + "<div class=\"media__text\"><span class=\"media__title\">"+ media.title + "</span>"
-                            + "<span class=\"media__likes\">"+media.likes + "</span></div>";
+        mediaCard.innerHTML =  `<video width="350" heigth="400" src="../images/${getFolderName(photographer)}${media.video}#t=0.1" type="video/mp4" class="media__photo">Sorry, your browser doesn't support embedded videos.</video>
+                                <div class="media__text"><span class="media__title">${media.title}</span>
+                                <div class="media__likes">${media.likes} <img src="../images/heart.svg" class="media__heart"/></div></div>`;
     }
     
     

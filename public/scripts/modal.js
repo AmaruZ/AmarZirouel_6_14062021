@@ -13,7 +13,7 @@ const openModal = (e) =>{
     modal.setAttribute("aria-hidden", "false");
     modal.setAttribute("aria-modal", "true");
     closeModalBtn.focus();
-    modalTitle.innerHTML = "Contactez-moi<br>" + photographer.name;
+    modalTitle.innerHTML = `Contactez-moi<br><span class="modal__photographer">${photographer.name}</span>`;
 }
 
 const closeModal = () =>{

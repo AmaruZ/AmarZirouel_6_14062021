@@ -15,8 +15,8 @@
 
 .wrapper{
     padding-top: 100px;
-    display: flex;
-    flex-flow: row wrap;
+    display: grid;
+    grid-template-columns: repeat( 3, 1fr);
     width: 100%;
 }
 
@@ -26,7 +26,6 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    margin-right: 70px;
     margin-bottom: 50px;
     &__link{
         display: flex;
@@ -63,6 +62,7 @@
     padding-left: 50px;
     background-color: #FAFAFA;
     border-radius: 5px;
+    margin-bottom: 20px;
     &__text{
         display: flex;
         flex-direction: column;
@@ -108,18 +108,23 @@
         line-height: 23px;
         color: #000000;
         margin-right: 20px;
+        margin-bottom: 58px;
     }
 
     
     &__dropdown{
-        //appearance: none;
         background-color: #901C1C;
         border: none;
         border-radius: 5px;
-        padding: 10px;
-        background-position: 5px 5px;
         width: 170px;
+        height: 69px;
         position: relative;
+        font-size: 18px;
+        padding: 23px 20px;
+        cursor: pointer;
+        font-size: 1.8rem;
+        display: flex;
+        justify-content: space-between;
     }
     &__options{
         background-color: #901C1C;
@@ -136,12 +141,19 @@
         color: #FAFAFA;
         font-family: "DM Sans";
         width: 170px;
-        font-size: 2.4rem;
+        font-size: 1.8rem;
         cursor: pointer;
-        padding: 5px 0 5px 20px;
+        padding: 20px;
         &-1{
             border-top-left-radius: 5px;
             border-top-right-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            padding-top: 23px;
+            
+        }
+        &-2{
+            position: relative;
         }
         &-2::before{
             content: "";
@@ -150,6 +162,7 @@
             background-color: #FAFAFA;
             position: absolute;
             margin-left: -10px;
+            top: 0;
         }
         &-3::before{
             content: "";
@@ -158,8 +171,10 @@
             background-color: #FAFAFA;
             position: absolute;
             margin-left: -10px;
+            top: 0;
         }
         &-3{
+            position: relative;
             border-bottom-left-radius: 5px;
             border-bottom-right-radius: 5px;
         }
@@ -167,16 +182,16 @@
             background-color: $color-primary;
             color: #FAFAFA;
             font-family: "DM Sans";
-            width: 170px;
-            font-size: 2.4rem;
-            cursor: pointer;
-            padding: 5px 0 5px 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
         }
 
     }
     &__show{
         display: flex;
         flex-direction: column;
+        height: 170px;
     }
 }
 
@@ -207,6 +222,11 @@
         color: black;
         font-size: 6.4rem;
         margin-bottom: 20px;
+        line-height: 70px;
+
+    }
+    &__photographer{
+        margin-top: 9px;
     }
     &__label{
         font-family: "DM Sans";
@@ -238,6 +258,13 @@
         box-shadow: none;
         border: none;
     }
+    &__close{
+        background: url(/public/images/close_modal.svg) center / 100% no-repeat;
+        text-indent: -10000px;
+        width: 42px;
+        height: 42px;
+        border: none;
+    }
 
 }
 
@@ -248,15 +275,15 @@
 
 .medias{
     &__wrapper{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
     }
 }
 
 .media{
     &__card{
         width: 350px;
+        margin-bottom: 20px;
     }
     &__photo{
         width: 100%;
@@ -264,6 +291,7 @@
         border-radius: 5px;
         object-fit: cover;
         cursor: pointer;
+        margin-bottom: 5px;
     }
     &__text{
         display: flex;
@@ -334,11 +362,13 @@
     &_down{
         width: 16px;
         height: 10px;
+        align-self: center;
     }
     &_up{
         width: 16px;
         height: 10px;
         transform: rotate(180deg);
+        align-self: center;
     }
     
 }

@@ -25,12 +25,12 @@ const sortMedias = (by) => {
     switch(by){
         case "sort__option-1" : {
             medias.sort((a,b) =>  b.likes - a.likes);
-            selectedOptions.innerHTML = `Popularité<img src="../images/chevron.svg" class="chevron_down"/>`
+            selectedOptions.innerHTML = `Popularité<img src="../images/chevron.svg" class="chevron_down"/>`;
         }
         break;
         case "sort__option-2" : {
             medias.sort((a,b) => new Date(b.date) - new Date(a.date))
-            selectedOptions.innerHTML = `Date<img src="../images/chevron.svg" class="chevron_down"/>`
+            selectedOptions.innerHTML = `Date<img src="../images/chevron.svg" class="chevron_down"/>`;
         }
         break;
         case "sort__option-3" : {
@@ -41,7 +41,7 @@ const sortMedias = (by) => {
                     return 1;
                 } 
             })
-            selectedOptions.innerHTML = `Titre<img src="../images/chevron.svg" class="chevron_down"/></span>`
+            selectedOptions.innerHTML = `Titre<img src="../images/chevron.svg" class="chevron_down"/></span>`;
         }
         break;
     }    
