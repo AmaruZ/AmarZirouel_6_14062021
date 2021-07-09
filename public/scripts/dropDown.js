@@ -1,3 +1,4 @@
+import { Lightbox } from "./lightbox.js";
 import { addMediasInDOM, flushMediasInDOM, medias } from "./photographers.js";
 const dropDownBtn = document.getElementById("sort-by");
 const dropDownContent = document.querySelector(".sort__options");
@@ -21,7 +22,7 @@ dropDownOptions.forEach(option => option.addEventListener("click", (e) => {
 }));
 
 const sortMedias = (by) => {
-    console.log(by)
+    //console.log(by)
     switch(by){
         case "sort__option-1" : {
             medias.sort((a,b) =>  b.likes - a.likes);
@@ -47,6 +48,7 @@ const sortMedias = (by) => {
     }    
     flushMediasInDOM();
     medias.forEach(media => addMediasInDOM(media));
+    Lightbox.init();
 
 }
 

@@ -1,7 +1,7 @@
 import { addAvatarToPhotographer } from "./avatar.js";
 import { fetchPhotographersJSON } from "./getData.js";
 import { Lightbox } from "./lightbox.js";
-import { mediaFactory } from "./media.js";
+import { MediaFactory } from "./media.js";
 
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -30,7 +30,7 @@ fetchPhotographersJSON()
         }
         for(let i = data.media.length; i > 0; i--){
             if(data.media[i-1].photographerId == photographer.id){
-                let media = new mediaFactory().createMedia(data.media[i-1]);
+                let media = new MediaFactory().createMedia(data.media[i-1]);
                 medias.push(media);
             }
         }
@@ -46,12 +46,7 @@ fetchPhotographersJSON()
         avatarPhotographer.classList.add("infos__avatar");
         wrapperPhotographer.appendChild(avatarPhotographer);
         medias.forEach(media => addMediasInDOM(media));
-        const photos = document.querySelectorAll(".media__photo");
-        console.log(photos);
-        photos.forEach(photo => photo.addEventListener("click", e => {
-            console.log(e.currentTarget.getAttribute("src"))
-            new Lightbox(e.currentTarget.getAttribute("src")).init();
-        }))
+        Lightbox.init();
     }) 
 
 export const addMediasInDOM = (media) =>{
