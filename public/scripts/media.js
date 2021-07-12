@@ -1,11 +1,11 @@
 export class MediaFactory {
     constructor() {
-        this.createMedia = function (data) {
+        this.createMedia = function (data, name) {
             let media;
             if (data.image != undefined) {
-                media = new ImageFactory(data);
+                media = new ImageFactory(data, name);
             } else if (data.video != undefined) {
-                media = new VideoFactory(data);
+                media = new VideoFactory(data, name);
             } else {
                 console.log("error");
             }
@@ -27,15 +27,26 @@ class Media {
 }
 
 class ImageFactory extends Media {
-    constructor(data) {
+    constructor(data, name) {
         super(data);
         this.image = data.image;
+        let folderName = name.split(" ");
+        if(folderName[0].includes("-")){
+            folderName[0] = folderName[0].replace("-", " ");
+        }
+        this.mediaHTML = `<img class="media__photo" src="../images/${folderName[0]}/${this.image}"/>`
+
     }
 }
 
 class VideoFactory extends Media {
-    constructor(data) {
+    constructor(data, name) {
         super(data);
         this.video = data.video;
+        let folderName = name.split(" ");
+        if(folderName[0].includes("-")){
+            folderName[0] = folderName[0].replace("-", " ");
+        }
+        this.mediaHTML = ` <video width="350" heigth="400" src="../images/${folderName[0]}/${this.video}#t=0.1" type="video/mp4" class="media__photo">Sorry, your browser doesn't support embedded videos.</video>`
     }
 }

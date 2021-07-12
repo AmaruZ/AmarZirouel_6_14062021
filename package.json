@@ -19,5 +19,8 @@
   "homepage": "https://github.com/AmaruZ/AmarZirouel_6_14062021#readme",
   "devDependencies": {
     "eslint": "^7.28.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3"
   }
 }

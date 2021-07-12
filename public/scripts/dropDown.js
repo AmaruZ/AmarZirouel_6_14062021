@@ -1,4 +1,5 @@
 import { Lightbox } from "./lightbox.js";
+import { Likes } from "./likes.js";
 import { addMediasInDOM, flushMediasInDOM, medias } from "./photographers.js";
 const dropDownBtn = document.getElementById("sort-by");
 const dropDownContent = document.querySelector(".sort__options");
@@ -9,8 +10,7 @@ dropDownBtn.addEventListener("click", e => showDropdown(e));
 
 const showDropdown = (e)=>{
     e.stopPropagation();
-    dropDownContent.classList.add("sort__show")
-    
+    dropDownContent.classList.add("sort__show");
 }
 
 dropDownOptions.forEach(option => option.addEventListener("click", (e) => {
@@ -22,7 +22,6 @@ dropDownOptions.forEach(option => option.addEventListener("click", (e) => {
 }));
 
 const sortMedias = (by) => {
-    //console.log(by)
     switch(by){
         case "sort__option-1" : {
             medias.sort((a,b) =>  b.likes - a.likes);
@@ -48,6 +47,7 @@ const sortMedias = (by) => {
     }    
     flushMediasInDOM();
     medias.forEach(media => addMediasInDOM(media));
+    Likes.init();
     Lightbox.init();
 
 }

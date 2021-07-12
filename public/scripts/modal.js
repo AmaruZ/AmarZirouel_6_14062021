@@ -37,4 +37,5 @@ submitBtn.addEventListener("click", e =>{
     console.log(`Nom: ${document.getElementById("firstname").value}`);
     console.log(`Email: ${document.getElementById("email").value}`);
     console.log(`Message: ${document.getElementById("message").value}`);
+    closeModal();
 })

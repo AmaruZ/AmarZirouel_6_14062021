@@ -10,7 +10,6 @@ export class Lightbox {
       e.preventDefault();
       new Lightbox(e.currentTarget.getAttribute("src"), gallery);
     }));
-    console.log(photos[1]);
   }
 
   /**
@@ -19,8 +18,8 @@ export class Lightbox {
      */
   constructor(src, gallery) {
     this.count = 0;
-    this.element = this.buildLightboxInDOM(src);
-    this.addMediaInLightbox();
+    this.element = this.buildLightboxInDOM();
+    this.addMediaInLightbox(src);
     this.onKeyUp = this.onKeyUp.bind(this);
     this.src = src;
     this.gallery = gallery;

@@ -415,8 +415,14 @@ h2 {
   width: 100%;
   font-family: "DM Sans";
   font-weight: 400;
-  font-size: 2.4rem;
+  font-size: 2.1rem;
   color: #901C1C;
+}
+.media__likes {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 60px;
 }
 
 .lightbox {
@@ -484,6 +490,29 @@ h2 {
   height: 10px;
   transform: rotate(180deg);
   align-self: center;
+}
+
+.likes {
+  position: fixed;
+  bottom: 0;
+  right: 5%;
+  padding: 0 30px;
+  background-color: #D3573C;
+  color: black;
+  display: flex;
+  width: 376px;
+  height: 63px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  font-size: 2.4rem;
+  align-items: center;
+  font-family: "DM Sans";
+  font-weight: 500;
+  justify-content: space-between;
+}
+.likes__numbers {
+  display: flex;
+  align-items: center;
 }
 
 /*# sourceMappingURL=main.css.map */

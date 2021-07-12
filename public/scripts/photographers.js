@@ -1,6 +1,7 @@
 import { addAvatarToPhotographer } from "./avatar.js";
 import { fetchPhotographersJSON } from "./getData.js";
 import { Lightbox } from "./lightbox.js";
+import { Likes } from "./likes.js";
 import { MediaFactory } from "./media.js";
 
 
@@ -13,8 +14,8 @@ const localisationPhotographer = document.querySelector(".infos__localisation");
 const taglinePhotographer = document.querySelector(".infos__tagline");
 const tagsPhotographer = document.querySelector(".infos__tags");
 const avatarPhotographer = document.createElement("img");
-
 const wrapperMedias = document.querySelector(".medias__wrapper");
+const pricePhotographer = document.querySelector(".likes__price");
 
 export let photographer = {};
 export let medias = [];
@@ -30,7 +31,7 @@ fetchPhotographersJSON()
         }
         for(let i = data.media.length; i > 0; i--){
             if(data.media[i-1].photographerId == photographer.id){
-                let media = new MediaFactory().createMedia(data.media[i-1]);
+                let media = new MediaFactory().createMedia(data.media[i-1],photographer.name);
                 medias.push(media);
             }
         }
@@ -46,21 +47,23 @@ fetchPhotographersJSON()
         avatarPhotographer.classList.add("infos__avatar");
         wrapperPhotographer.appendChild(avatarPhotographer);
         medias.forEach(media => addMediasInDOM(media));
+        Likes.init();
         Lightbox.init();
-    }) 
+        pricePhotographer.innerHTML = `${photographer.price}€ / jour`
+    })
 
 export const addMediasInDOM = (media) =>{
     const mediaCard = document.createElement("div");
     mediaCard.classList.add("media__card");
     wrapperMedias.appendChild(mediaCard);
     if(media.image!= undefined){
-        mediaCard.innerHTML =  `<img class="media__photo" src="../images/${getFolderName(photographer)}${media.image}"/>
+        mediaCard.innerHTML =  `${media.mediaHTML}
                                 <div class="media__text"><span class="media__title">${media.title}</span>
-                                <div class="media__likes">${media.likes} <img src="../images/heart.svg" class="media__heart"/></div></div>`;
+                                <div class="media__likes"><p class="media__likes-number">${media.likes} </p><i class="far fa-heart media__heart"></i></div></div>`;
     } else if(media.video != undefined){
         mediaCard.innerHTML =  `<video width="350" heigth="400" src="../images/${getFolderName(photographer)}${media.video}#t=0.1" type="video/mp4" class="media__photo">Sorry, your browser doesn't support embedded videos.</video>
                                 <div class="media__text"><span class="media__title">${media.title}</span>
-                                <div class="media__likes">${media.likes} <img src="../images/heart.svg" class="media__heart"/></div></div>`;
+                                <div class="media__likes"><p class="media__likes-number">${media.likes} </p><i class="far fa-heart media__heart"></i></div></div>`;
     }
     
     
