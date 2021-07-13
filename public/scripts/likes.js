@@ -2,8 +2,7 @@ export class Likes{
 
     static init(){
         const likes = Array.from(document.querySelectorAll(".media__likes"));
-        console.log(likes);
-        const total = likes.map(like => parseInt(like.outerText));
+        const total = likes.map(like => parseInt(like.innerText));
         new Likes(total)
     }
 
@@ -14,7 +13,6 @@ export class Likes{
         for(let i = hearts.length-1; i>= 0; i--){
             hearts[i].addEventListener("click", e =>{
                 e.preventDefault()
-                console.log(i)
                 this.incrementMediaLikes(i);
                 
             })
@@ -43,7 +41,8 @@ export class Likes{
         result = this.total.reduce((a,b) => a+b);
         const dom = document.querySelector(".likes__total");
         dom.innerHTML = "";
-        dom.innerHTML = result;
+        dom.innerHTML = `${result}`;
+        
     }
 
     addLikesInDOM(){

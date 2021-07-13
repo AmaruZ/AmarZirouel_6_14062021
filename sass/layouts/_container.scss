@@ -2,6 +2,7 @@
     margin-left: auto;
     margin-right: auto;
     width: fit-content;
+    width: -moz-fit-content;
     @include mobile{
         display: flex;
         flex-direction: column;
@@ -24,6 +25,9 @@
     border-radius: 5px;
     padding: 3px 10px;
     left: 42%;
+    @include mobile{
+        left: 27%;
+    }
 }
 .content{
     padding-top: 40px;
@@ -122,11 +126,13 @@
     }
     &__name{
         font-size: 4rem;
-        color: $color-secondary;
+        color: #D3573C;
         margin-bottom: 20px;
         @include mobile{
             font-size: 3.6rem;
             margin-bottom: 10px;
+            width: 228px;
+            line-height: 3rem;
         }
     }
     &__localisation{
@@ -160,8 +166,8 @@
         height: 150px;
         object-fit: cover;
         @include mobile{
-            top: 35px;
-            right: 10px;
+            top: 30px;
+            right: 0px;
             width: 100px;
             height: 100px;
         }
@@ -364,6 +370,10 @@
         border-radius: 5px;
         box-shadow: none;
         border: none;
+        &:hover, &:focus{
+            background-color: $color-secondary;
+            color: #000;
+        }
         @include mobile{
             height: 35px;
             font-size: 1.8rem;
@@ -417,7 +427,6 @@
         margin-bottom: 5px;
         @include mobile{
             height: 190px;
-            object-position: 100% 20%;   
         }
     }
 
@@ -433,11 +442,16 @@
             font-size: 1.4rem;   
         }
     }
+    &__heart{
+        cursor: pointer;
+    }
     &__likes{
         display: flex;
         align-items: center;
         justify-content: space-evenly;
         width: 60px;
+
+        
         @include mobile{
             font-weight: 500;   
         }
@@ -505,8 +519,19 @@
             height: 40vh;
         }
     }
-    &__photo, &__video{
+    &__photo{
         max-width: 100%;
+        height: 90vh;
+        object-fit: cover;
+        @include mobile{
+            height: 40vh;
+            width: 75vw;
+            border-radius: 5px;
+        }
+    }
+        &__video{
+            width: 90vw;
+            max-width: 100%;
         height: 90vh;
         object-fit: cover;
         @include mobile{
@@ -556,5 +581,8 @@
     &__numbers{
         display: flex;
         align-items: center;
+    }
+    &__total{
+        margin-right: 5px;
     }
 }

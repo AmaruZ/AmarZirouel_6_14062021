@@ -79,7 +79,7 @@ const flushPhotographersInDOM = () =>{
 const tagInList = (tags) =>{
     let result = "";
     tags.forEach(tag => {
-        result += "<span class=\"tags\">#"+ tag.charAt(0).toUpperCase() + tag.slice(1) + "</span>";
+        result += `<span class="tags">#${tag.charAt(0).toUpperCase()}${tag.slice(1)} </span>`;
     });
     return result;
 }

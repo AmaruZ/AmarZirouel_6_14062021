@@ -59,7 +59,7 @@ export const addMediasInDOM = (media) =>{
     wrapperMedias.appendChild(mediaCard);
     mediaCard.innerHTML =  `${media.mediaHTML}
                             <div class="media__text"><span class="media__title">${media.title}</span>
-                            <div class="media__likes"><p class="media__likes-number">${media.likes} </p><i class="far fa-heart media__heart"></i></div></div>`;
+                            <div class="media__likes"><p class="media__likes-number">${media.likes} </p><i class="far fa-heart media__heart" aria-label="likes"></i></div></div>`;
     
 }
 
