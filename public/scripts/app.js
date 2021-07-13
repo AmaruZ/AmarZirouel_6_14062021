@@ -12,10 +12,6 @@ fetchPhotographersJSON()
             photographers[i] = data.photographers[i];
             addPhotographerInDOM(photographers[i]);
         }
-        /*for (let photographer in data.photographers){
-            photographers[photographer] = data.photographers[photographer];
-            addPhotographerInDOM(photographers[photographer]);
-        }*/
     })
     .finally(()=>{
         Array.from(spanTags, tag =>{
@@ -34,11 +30,6 @@ fetchPhotographersJSON()
                             break;
                         }
                     }
-                   /* Array.from(spanTags, tag =>{
-                        if(tag.classList.contains("tags-active")){
-                            tag.classList.toggle("tags-active");
-                        }
-                    });*/
                     tag.classList.toggle("tags-active");
                     for(let i=0; i < photographers.length; i++){
                         for(let j=photographers[i].tags.length; j > 0; j--){
@@ -48,18 +39,21 @@ fetchPhotographersJSON()
                             }
                         }
                     }
-                    /*
-                    photographers.forEach(photographer =>{
-                        photographer.tags.forEach(ptag =>{
-                            if("#"+ ptag.charAt(0).toUpperCase() + ptag.slice(1) == tag.textContent){
-                                addPhotographerInDOM(photographer);
-                            }
-                        });
-                    });*/
                 }
                 
             });
         });
+        window.addEventListener("scroll", () => {
+            let anchor = document.querySelector(".anchor");
+            let y = window.scrollY;
+            if (y >= 130) {
+                anchor.style.display = "block";
+            } else {
+                anchor.style.display = "none";
+            }
+            
+            })
+        
     })
 
 const addPhotographerInDOM = (photographer) =>{

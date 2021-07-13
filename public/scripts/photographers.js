@@ -55,31 +55,14 @@ fetchPhotographersJSON()
 export const addMediasInDOM = (media) =>{
     const mediaCard = document.createElement("div");
     mediaCard.classList.add("media__card");
+    //mediaCard.setAttribute("tabIndex", "0");
     wrapperMedias.appendChild(mediaCard);
-    if(media.image!= undefined){
-        mediaCard.innerHTML =  `${media.mediaHTML}
-                                <div class="media__text"><span class="media__title">${media.title}</span>
-                                <div class="media__likes"><p class="media__likes-number">${media.likes} </p><i class="far fa-heart media__heart"></i></div></div>`;
-    } else if(media.video != undefined){
-        mediaCard.innerHTML =  `<video width="350" heigth="400" src="../images/${getFolderName(photographer)}${media.video}#t=0.1" type="video/mp4" class="media__photo">Sorry, your browser doesn't support embedded videos.</video>
-                                <div class="media__text"><span class="media__title">${media.title}</span>
-                                <div class="media__likes"><p class="media__likes-number">${media.likes} </p><i class="far fa-heart media__heart"></i></div></div>`;
-    }
-    
+    mediaCard.innerHTML =  `${media.mediaHTML}
+                            <div class="media__text"><span class="media__title">${media.title}</span>
+                            <div class="media__likes"><p class="media__likes-number">${media.likes} </p><i class="far fa-heart media__heart"></i></div></div>`;
     
 }
 
 export const flushMediasInDOM = () =>{
     wrapperMedias.innerHTML = "";
-}
-
-const getFolderName = (photographer) =>{
-    switch(photographer.name){
-        case "Mimi Keel": return "Mimi/";
-        case "Ellie-Rose Wilkens": return "Ellie Rose/";
-        case "Tracy Galindo": return "Tracy/";
-        case "Nabeel Bradford" : return "Nabeel/";
-        case "Rhode Dubois" : return "Rhode/";
-        case "Marcel Nikolic" : return "Marcel/";
-    }
 }

@@ -1,16 +1,57 @@
+.body-wrapper{
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    @include mobile{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.anchor{
+    display: none;
+    position: fixed;
+    top: 0;
+    height: 30px;
+    background: $color-secondary;
+    color: #000;
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 23px;
+    text-align: center;
+    border-radius: 5px;
+    padding: 3px 10px;
+    left: 42%;
+}
 .content{
     padding-top: 40px;
     margin-left: 100px;
     margin-right: 100px;
     width: 1240px;
+    @include mobile{
+        width: auto;
+        padding: 0;
+        margin: auto;
+    }
     &__medias{
         margin-left: auto;
         margin-right: auto;
         width: 1240px;
+        @include mobile{
+            width: 100%;
+        }
     }
 }
 
-
+.main-title{
+    @include mobile{
+        position: absolute;
+        top: 50px;
+        right: 22px;
+    }
+}
 
 
 .wrapper{
@@ -18,6 +59,12 @@
     display: grid;
     grid-template-columns: repeat( 3, 1fr);
     width: 100%;
+    @include mobile{
+        display: flex;
+        flex-direction: column;
+        
+        
+    }
 }
 
 
@@ -63,6 +110,10 @@
     background-color: #FAFAFA;
     border-radius: 5px;
     margin-bottom: 20px;
+    @include mobile{
+        background-color: #FFF;
+        padding-left: 20px;
+    }
     &__text{
         display: flex;
         flex-direction: column;
@@ -73,12 +124,20 @@
         font-size: 4rem;
         color: $color-secondary;
         margin-bottom: 20px;
+        @include mobile{
+            font-size: 3.6rem;
+            margin-bottom: 10px;
+        }
     }
     &__localisation{
         color: $color-primary;
         font-size: 2.4rem;
         margin-bottom: 19px;
         font-weight: 400;
+        @include mobile{
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
     }
     &__tagline{
         font-size: 1.8rem;
@@ -86,6 +145,10 @@
         font-weight: 300;
         color: #525252;
         margin-bottom: 15px;
+        @include mobile{
+            font-size: 1.3rem;
+            line-height: 1.7rem;   
+        }
     }
     &__tags{
         margin-bottom: 48px;
@@ -95,11 +158,21 @@
         right: 114px;
         width: 150px;
         height: 150px;
+        object-fit: cover;
+        @include mobile{
+            top: 35px;
+            right: 10px;
+            width: 100px;
+            height: 100px;
+        }
     }
 }
 
 .sort{
     display: flex;
+    @include mobile{
+        display: none;   
+    }
     &__title{
         font-family: "DM Sans";
         font-style: normal;
@@ -205,6 +278,9 @@
     height: 100vh;
     justify-content: center;
     align-items: center;
+    @include mobile{
+        border-radius: 5px;
+    }
     &__header{
         display: flex;
         justify-content: space-between;
@@ -215,6 +291,11 @@
         width: 669px;
         height: 900px;
         padding: 35px;
+        @include mobile{
+            padding: 20px;
+            height: 100%;
+            width: 100%;
+        }
         
 
     }
@@ -223,26 +304,48 @@
         font-size: 6.4rem;
         margin-bottom: 20px;
         line-height: 70px;
+        @include mobile{
+            font-size: 3.6rem;
+            line-height: 4.67rem;
+            margin-bottom: 12px;
+        }
 
     }
     &__photographer{
         margin-top: 9px;
+
     }
     &__label{
         font-family: "DM Sans";
         font-size: 3.6rem;
         color: #312E2E;
+        @include mobile{
+            font-size: 2.4rem;
+            margin-top: 14px;
+            margin-bottom: 4px;
+        }
 
     }
     &__input{
         height: 68px;
         font-size: 2.4rem;
         padding-left: 10px;
+        border-radius: 5px;
+        border: none;
+        background: #FFF;
+        @include mobile{
+            height: 52px;
+        }
     }
     &__textarea{
         margin-bottom: 26px;
         font-size: 2.4rem;
         padding-left: 10px;
+        border-radius: 5px;
+        border: none;
+        @include mobile{
+            margin-top: 10px;   
+        }
     }
 
     &__btn{
@@ -261,6 +364,13 @@
         border-radius: 5px;
         box-shadow: none;
         border: none;
+        @include mobile{
+            height: 35px;
+            font-size: 1.8rem;
+            line-height: 2.33rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
     }
     &__close{
         background: url(/public/images/close_modal.svg) center / 100% no-repeat;
@@ -282,6 +392,10 @@
     &__wrapper{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+        @include mobile{
+            display: flex;
+            flex-direction: column;
+        }
     }
 }
 
@@ -289,6 +403,10 @@
     &__card{
         width: 350px;
         margin-bottom: 20px;
+        @include mobile{
+            margin-left: auto;
+            margin-right: auto;   
+        }
     }
     &__photo{
         width: 100%;
@@ -297,6 +415,10 @@
         object-fit: cover;
         cursor: pointer;
         margin-bottom: 5px;
+        @include mobile{
+            height: 190px;
+            object-position: 100% 20%;   
+        }
     }
 
     &__text{
@@ -307,12 +429,18 @@
         font-weight: 400;
         font-size: 2.1rem;
         color: $color-primary;
+        @include mobile{
+            font-size: 1.4rem;   
+        }
     }
     &__likes{
         display: flex;
         align-items: center;
         justify-content: space-evenly;
         width: 60px;
+        @include mobile{
+            font-weight: 500;   
+        }
     }
 
 }
@@ -335,6 +463,11 @@
         margin-top: -14px;
         text-indent: -10000px;
         cursor: pointer;
+        @include mobile{
+            height: 23px;
+            width: 23px;
+            right: 3%;
+        }
 
     }
     &__prev{
@@ -352,6 +485,12 @@
         position: fixed;
         top: 10%;
         right: 1%;
+        @include mobile{
+            top: 25%;
+            width: 23px;
+            height: 23px;
+            right: 3%;
+        }
     }
     &__container{
         display: flex;
@@ -361,16 +500,22 @@
         margin-right: auto;
         min-height: 100vh;
         width: 90%;
+        @include mobile{
+            width: 75vw;
+            height: 40vh;
+        }
     }
-    &__photo{
+    &__photo, &__video{
         max-width: 100%;
         height: 90vh;
         object-fit: cover;
+        @include mobile{
+            height: 40vh;
+            width: 75vw;
+            border-radius: 5px;
+        }
     }
-    &__video{
-        width: 100%;
-        height: 90vh;
-    }
+
 }
 
 .chevron{
@@ -405,6 +550,9 @@
     font-family: "DM Sans";
     font-weight: 500;
     justify-content: space-between;
+    @include mobile{
+        display: none;
+    }
     &__numbers{
         display: flex;
         align-items: center;

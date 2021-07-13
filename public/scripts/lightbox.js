@@ -35,8 +35,8 @@ export class Lightbox {
     dom.classList.add("lightbox");
     dom.innerHTML = `<button class="lightbox__close">Fermer</button>
                     <button class="lightbox__next">Suivant</button>
-                        <button class="lightbox__prev">Précédent</button>
-                        <div class="lightbox__container"></div>`;
+                    <div class="lightbox__container"></div>
+                    <button class="lightbox__prev">Précédent</button>`;
     dom.querySelector(".lightbox__close").addEventListener("click", this.closeLightbox.bind(this));
     dom.querySelector(".lightbox__next").addEventListener("click", this.nextMedia.bind(this));
     dom.querySelector(".lightbox__prev").addEventListener("click", this.prevMedia.bind(this));

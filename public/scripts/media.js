@@ -34,7 +34,7 @@ class ImageFactory extends Media {
         if(folderName[0].includes("-")){
             folderName[0] = folderName[0].replace("-", " ");
         }
-        this.mediaHTML = `<img class="media__photo" src="../images/${folderName[0]}/${this.image}"/>`
+        this.mediaHTML = `<img tabIndex="0" class="media__photo" alt="${this.title}" src="../images/${folderName[0]}/${this.image}"/>`
 
     }
 }

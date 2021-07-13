@@ -6,10 +6,25 @@
     width: 1000px;
     padding-top: 42px;
     padding-left: 100px;
+    @include mobile{
+        width: auto;
+        padding-top: 40px;
+        padding-left: 20px;
+        flex-direction: column;
+    }
+    &__logo{
+        @include mobile{
+            width: 150px;
+            height: 37.5px;
+        }
+    }
 }
 
 .header-photographer{
     display: block;
     padding-top: 42px;
-    padding-left: 100px;
+    @include mobile{
+        padding-left: 20px;
+        padding-top: 40px;
+    }
 }

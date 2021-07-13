@@ -1,4 +1,17 @@
 .navigation{
     padding-top: 15px;
     padding-right: 50px;
+    @include mobile{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        padding-right: 0;
+    }
+    &__link{
+        @include mobile{
+            margin-bottom: 6px;
+        }
+    }
 }

@@ -14,5 +14,11 @@
         align-items: center;
         justify-content: center;
         border-radius: 5px;
+        @include mobile{
+            height: 35px;
+            position: fixed;
+            bottom: 30px;
+            left: 25%;
+        }
     }
 }

@@ -11,6 +11,7 @@ dropDownBtn.addEventListener("click", e => showDropdown(e));
 const showDropdown = (e)=>{
     e.stopPropagation();
     dropDownContent.classList.add("sort__show");
+    dropDownOptions[0].focus();
 }
 
 dropDownOptions.forEach(option => option.addEventListener("click", (e) => {
@@ -51,5 +52,3 @@ const sortMedias = (by) => {
     Lightbox.init();
 
 }
-
-//<span class="sort__option__selected" role="button" aria-label="listbox" aria-haspopup="true">Popularité<img src="../images/chevron.svg" class="chevron_down"/></span>
