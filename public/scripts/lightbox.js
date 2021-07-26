@@ -10,6 +10,12 @@ export class Lightbox {
       e.preventDefault();
       new Lightbox(e.currentTarget.getAttribute("src"), gallery);
     }));
+    photos.forEach(photo => photo.addEventListener("keypress", e => {
+      if(e.key === "Enter"){
+        e.preventDefault();
+        new Lightbox(e.currentTarget.getAttribute("src"), gallery);
+      }
+    }));
   }
 
   /**
@@ -33,6 +39,8 @@ export class Lightbox {
   buildLightboxInDOM() {
     const dom = document.createElement("div");
     dom.classList.add("lightbox");
+    dom.setAttribute("aria-hidden", "false");
+    dom.setAttribute("role", "dialog");
     dom.innerHTML = `<button class="lightbox__close">Fermer</button>
                     <button class="lightbox__next">Suivant</button>
                     <div class="lightbox__container"></div>
@@ -40,6 +48,8 @@ export class Lightbox {
     dom.querySelector(".lightbox__close").addEventListener("click", this.closeLightbox.bind(this));
     dom.querySelector(".lightbox__next").addEventListener("click", this.nextMedia.bind(this));
     dom.querySelector(".lightbox__prev").addEventListener("click", this.prevMedia.bind(this));
+    dom.querySelector(".lightbox__close").focus();
+    document.querySelector(".body-wrapper").setAttribute("aria-hidden","true");
     return dom;
   }
   /**
@@ -54,7 +64,6 @@ export class Lightbox {
       const image = new Image();
       container.appendChild(image);
       image.classList.add("lightbox__photo");
-      console.log(image);
       image.src = src;
     } else {
       console.log(src)
@@ -80,6 +89,8 @@ export class Lightbox {
      */
   closeLightbox(e) {
     e.preventDefault();
+    document.querySelector(".body-wrapper").setAttribute("aria-hidden","false");
+    this.element.setAttribute("aria-hidden", "true");
     this.element.remove();
     document.removeEventListener("keyup", this.onKeyUp);
   }

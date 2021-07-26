@@ -66,6 +66,7 @@
     @include mobile{
         display: flex;
         flex-direction: column;
+        padding-top: 40px;
         
         
     }
@@ -233,6 +234,7 @@
         }
         &-2{
             position: relative;
+            text-align: left;
         }
         &-2::before{
             content: "";
@@ -240,7 +242,7 @@
             height: 1px;
             background-color: #FAFAFA;
             position: absolute;
-            margin-left: -10px;
+            left: 7.5%;
             top: 0;
         }
         &-3::before{
@@ -249,13 +251,14 @@
             height: 1px;
             background-color: #FAFAFA;
             position: absolute;
-            margin-left: -10px;
+            left: 7.5%;
             top: 0;
         }
         &-3{
             position: relative;
             border-bottom-left-radius: 5px;
             border-bottom-right-radius: 5px;
+            text-align: left;
         }
         &__selected{
             background-color: $color-primary;

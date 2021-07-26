@@ -14,7 +14,12 @@ export class Likes{
             hearts[i].addEventListener("click", e =>{
                 e.preventDefault()
                 this.incrementMediaLikes(i);
-                
+            })
+            hearts[i].addEventListener("keypress", e =>{
+                if (e.key ==="Enter") {
+                    e.preventDefault()
+                    this.incrementMediaLikes(i);
+                } 
             })
         }
     }
@@ -43,10 +48,6 @@ export class Likes{
         dom.innerHTML = "";
         dom.innerHTML = `${result}`;
         
-    }
-
-    addLikesInDOM(){
-        const likesWrapper = document.querySelector(".likes__total");
     }
 
 }

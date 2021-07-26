@@ -7,13 +7,22 @@ const dropDownOptions = document.querySelectorAll(".sort__option");
 const selectedOptions = document.querySelector(".sort__option__selected");
 
 dropDownBtn.addEventListener("click", e => showDropdown(e));
+dropDownBtn.addEventListener("keypress", e =>{
+    if(e.key === "Enter"){
+        showDropdown(e);
+    }
+})
 
+// Afficher la liste deroulante pour trier les medias
 const showDropdown = (e)=>{
+    e.preventDefault();
     e.stopPropagation();
+    dropDownBtn.setAttribute("aria-expanded","true");
     dropDownContent.classList.add("sort__show");
     dropDownOptions[0].focus();
 }
 
+// Ajoute les event listeners sur la liste deroulante pour pouvoir trier en fonction de l'option choisie
 dropDownOptions.forEach(option => option.addEventListener("click", (e) => {
     e.stopPropagation();
     e.stopImmediatePropagation();
@@ -21,17 +30,28 @@ dropDownOptions.forEach(option => option.addEventListener("click", (e) => {
     const classes = option.className.split(" ");
     sortMedias(classes[1]);
 }));
+dropDownOptions.forEach(option => option.addEventListener("keypress", (e) => {
+    if(e.key ==="Enter"){
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        dropDownContent.className = "sort__options";
+        const classes = option.className.split(" ");
+        sortMedias(classes[1]);
+    }
+
+}));
 
 const sortMedias = (by) => {
     switch(by){
         case "sort__option-1" : {
             medias.sort((a,b) =>  b.likes - a.likes);
-            selectedOptions.innerHTML = `Popularité<img src="../images/chevron.svg" class="chevron_down"/>`;
+            selectedOptions.innerHTML = `Popularité<i class="fas fa-chevron-down chevron__down"></i>`;
         }
         break;
         case "sort__option-2" : {
             medias.sort((a,b) => new Date(b.date) - new Date(a.date))
-            selectedOptions.innerHTML = `Date<img src="../images/chevron.svg" class="chevron_down"/>`;
+            selectedOptions.innerHTML = `Date<i class="fas fa-chevron-down chevron__down"></i>`;
         }
         break;
         case "sort__option-3" : {
@@ -42,12 +62,13 @@ const sortMedias = (by) => {
                     return 1;
                 } 
             })
-            selectedOptions.innerHTML = `Titre<img src="../images/chevron.svg" class="chevron_down"/></span>`;
+            selectedOptions.innerHTML = `Titre<i class="fas fa-chevron-down chevron__down"></i>`;
         }
         break;
     }    
     flushMediasInDOM();
     medias.forEach(media => addMediasInDOM(media));
+    dropDownBtn.setAttribute("aria-expanded","false");
     Likes.init();
     Lightbox.init();
 

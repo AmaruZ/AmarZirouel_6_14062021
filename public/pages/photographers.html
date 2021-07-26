@@ -13,13 +13,13 @@
 <body>
     <div class="body-wrapper">
     <header class="header-photographer" role="banner">
-        <a href="/public/index.html" aria-label="Page d'Accueil">
+        <a href="/public/index.html" aria-label="Page d'Accueil Fisheye">
             <img src="../images/logo.svg" alt="Page d'Accueil FishEye" class="header__logo">
         </a>
     </header>
     <main class="content__medias" aria-hidden="false">
         <section class="infos">
-            <div class="infos__text">
+            <div class="infos__text" tabindex="0">
                 <h1 class="infos__name"></h1>
                 <span class="infos__localisation"></span>
                 <span class="infos__tagline"></span>
@@ -30,16 +30,14 @@
         <section class="medias">
             <div class="sort">
                 <label for="sort-by" class="sort__title">Trier par</label>
-                <div id="sort-by" class="sort__dropdown">
-                    <a href="#" class="sort__option__selected" role="button" aria-label="listbox"
-                        aria-haspopup="true">Popularité<img src="../images/chevron.svg" class="chevron_down" /></a>
-                    <ul class="sort__options">
-                        <li class="sort__option sort__option-1" tabindex="0"><span>Popularité</span><img
-                                src="../images/chevron.svg" class="chevron_up" /></li>
+                <button id="sort-by" class="sort__dropdown" aria-haspopup="true" aria-expanded="false" aria-label="trier par">
+                    <div class="sort__option__selected" >Popularité<i class="fas fa-chevron-down chevron__down"></i></div>
+                    <ul class="sort__options" aria-label="trier par">
+                        <li class="sort__option sort__option-1" tabindex="0">Popularité<i class="fas fa-chevron-up chevron__up"></i></li>
                         <li class="sort__option sort__option-2" tabindex="0">Date</li>
                         <li class="sort__option sort__option-3" tabindex="0">Titre</li>
-                        </ul>
-                </div>
+                    </ul>
+                </button>
             </div>
             <div class="medias__wrapper"></div>
             <div class="likes">
@@ -83,12 +81,6 @@
                 </form>
             </div>
         </div>
-        <!-- <div class="lightbox">
-            <button class="lightbox__close">Fermer</button>
-            <button class="lightbox__next">Suivant</button>
-            <button class="lightbox__prev">Précédent</button>
-            <div class="lightbox__container"></div>
-        </div> -->
     </main>
 </div>
     <script src="/public/scripts/photographers.js" type="module"></script>
