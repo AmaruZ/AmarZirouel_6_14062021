@@ -1,4 +1,5 @@
 import { addAvatarToPhotographer } from "./avatar.js";
+import { showDropdown } from "./dropDown.js";
 import { fetchPhotographersJSON } from "./getData.js";
 import { Lightbox } from "./lightbox.js";
 import { Likes } from "./likes.js";
@@ -16,6 +17,7 @@ const tagsPhotographer = document.querySelector(".infos__tags");
 const avatarPhotographer = document.createElement("img");
 const wrapperMedias = document.querySelector(".medias__wrapper");
 const pricePhotographer = document.querySelector(".likes__price");
+const dropDownBtn = document.getElementById("sort-by");
 
 export let photographer = {};
 export let medias = [];
@@ -47,6 +49,7 @@ fetchPhotographersJSON()
         avatarPhotographer.classList.add("infos__avatar");
         wrapperPhotographer.appendChild(avatarPhotographer);
         medias.forEach(media => addMediasInDOM(media));
+        dropDownBtn.addEventListener("click", showDropdown);
         Likes.init();
         Lightbox.init();
         pricePhotographer.innerHTML = `${photographer.price}€ / jour`
@@ -59,7 +62,7 @@ export const addMediasInDOM = (media) =>{
     wrapperMedias.appendChild(mediaCard);
     mediaCard.innerHTML =  `${media.mediaHTML}
                             <div class="media__text"><span class="media__title">${media.title}</span>
-                            <div class="media__likes" tabIndex="0" aria-label="likes"><p class="media__likes-number">${media.likes} </p><i class="far fa-heart media__heart"></i></div></div>`;
+                            <div class="media__likes"><p class="media__likes-number">${media.likes} </p><i class="far fa-heart media__heart"></i></div></div>`;
     
 }
 

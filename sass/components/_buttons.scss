@@ -1,3 +1,24 @@
+.btn{
+    width: 170px;
+    height: 69px;
+    background-color: $color-primary;
+    color: white;
+    font-size: 1.8rem;
+    font-family: "DM Sans";
+    font-style: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    &-dropdown{
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+}
 .contact{
     &__button{
         width: 170px;
@@ -26,3 +47,4 @@
         }
     }
 }
+

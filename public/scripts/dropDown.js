@@ -6,17 +6,15 @@ const dropDownContent = document.querySelector(".sort__options");
 const dropDownOptions = document.querySelectorAll(".sort__option");
 const selectedOptions = document.querySelector(".sort__option__selected");
 
-dropDownBtn.addEventListener("click", e => showDropdown(e));
+/*dropDownBtn.addEventListener("click", e => showDropdown(e));
 dropDownBtn.addEventListener("keypress", e =>{
     if(e.key === "Enter"){
         showDropdown(e);
     }
-})
+})*/
 
 // Afficher la liste deroulante pour trier les medias
-const showDropdown = (e)=>{
-    e.preventDefault();
-    e.stopPropagation();
+export const showDropdown = ()=>{
     dropDownBtn.setAttribute("aria-expanded","true");
     dropDownContent.classList.add("sort__show");
     dropDownOptions[0].focus();

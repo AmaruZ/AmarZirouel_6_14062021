@@ -40,6 +40,7 @@ export class Lightbox {
     const dom = document.createElement("div");
     dom.classList.add("lightbox");
     dom.setAttribute("aria-hidden", "false");
+    dom.setAttribute("aria-modal", "true");
     dom.setAttribute("role", "dialog");
     dom.innerHTML = `<button class="lightbox__close">Fermer</button>
                     <button class="lightbox__next">Suivant</button>
@@ -49,7 +50,7 @@ export class Lightbox {
     dom.querySelector(".lightbox__next").addEventListener("click", this.nextMedia.bind(this));
     dom.querySelector(".lightbox__prev").addEventListener("click", this.prevMedia.bind(this));
     dom.querySelector(".lightbox__close").focus();
-    document.querySelector(".body-wrapper").setAttribute("aria-hidden","true");
+    document.querySelector(".body-wrapper").style.display  = "none";
     return dom;
   }
   /**
@@ -89,8 +90,9 @@ export class Lightbox {
      */
   closeLightbox(e) {
     e.preventDefault();
-    document.querySelector(".body-wrapper").setAttribute("aria-hidden","false");
+    document.querySelector(".body-wrapper").style.display  = "block";
     this.element.setAttribute("aria-hidden", "true");
+    this.element.setAttribute("aria-modal", "false");
     this.element.remove();
     document.removeEventListener("keyup", this.onKeyUp);
   }
