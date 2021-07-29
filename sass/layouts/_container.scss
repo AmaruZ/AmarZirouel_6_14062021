@@ -12,7 +12,7 @@
 .anchor{
     display: none;
     position: fixed;
-    top: 0;
+
     height: 30px;
     background: $color-secondary;
     color: #000;
@@ -24,10 +24,8 @@
     text-align: center;
     border-radius: 5px;
     padding: 3px 10px;
-    left: 42%;
-    @include mobile{
-        left: 27%;
-    }
+    top: 1%;
+    left: calc(50% + -90px);
 }
 .content{
     padding-top: 40px;
@@ -274,7 +272,6 @@
     &__header{
         display: flex;
         justify-content: space-between;
-
     }
     &__wrapper{
         background-color: #DB8876;
@@ -286,8 +283,6 @@
             height: 100%;
             width: 100%;
         }
-        
-
     }
     &__title, &__photographer{
         color: black;
@@ -299,11 +294,9 @@
             line-height: 4.67rem;
             margin-bottom: 12px;
         }
-
     }
     &__photographer{
         margin-top: 9px;
-
     }
     &__label{
         font-family: "DM Sans";
@@ -328,9 +321,10 @@
         }
     }
     &__textarea{
-        margin-bottom: 26px;
+        margin-bottom: 13px;
         font-size: 2.4rem;
         padding-left: 10px;
+        padding-top: 15px;
         border-radius: 5px;
         border: none;
         @include mobile{
@@ -568,5 +562,21 @@
     }
     &__total{
         margin-right: 5px;
+    }
+}
+
+.animation{
+    animation-duration: 0.5s;
+    animation-name: slide;
+    animation-iteration-count: 3;
+    animation-direction: alternate-reverse;
+}
+
+@keyframes slide{
+    from{
+        transform: translateX(0);
+    }
+    to{
+    transform: translateX(20px);
     }
 }

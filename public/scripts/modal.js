@@ -1,12 +1,18 @@
 import { photographer } from "./photographers.js";
 
-const openModalBtn = document.querySelector(".contact__button");
 const closeModalBtn = document.querySelector(".modal__close");
 const modal = document.querySelector(".modal");
 const modalTitle = document.querySelector(".modal__title");
 const submitBtn = document.querySelector(".modal__btn");
+const lastName = document.getElementById("lastname");
+const firstName = document.getElementById("firstname");
+const email = document.getElementById("email");
+const regex = {
+    mail: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/,
+    name: /^[a-zA-ZÀ-Ÿà-ÿ]+([\s\'\.\-][a-zA-ZÀ-Ÿà-ÿ]+)?([\s\'\.\-][a-zA-ZÀ-Ÿà-ÿ]+)*$/
+  };
 
-const openModal = (e) =>{
+export const openModal = e =>{
     e.preventDefault();
     modal.style.display = "flex";
     modal.setAttribute("aria-hidden", "false");
@@ -21,8 +27,6 @@ const closeModal = () =>{
     modal.setAttribute("aria-hidden", "true");
     modal.setAttribute("aria-modal", "false");   
 }
-
-openModalBtn.addEventListener("click", openModal);
 closeModalBtn.addEventListener("click", closeModal);
 
 document.addEventListener("keydown", (e)=>{
@@ -33,9 +37,24 @@ document.addEventListener("keydown", (e)=>{
 
 submitBtn.addEventListener("click", e =>{
     e.preventDefault();
-    console.log(`Prénom: ${document.getElementById("lastname").value}`);
-    console.log(`Nom: ${document.getElementById("firstname").value}`);
-    console.log(`Email: ${document.getElementById("email").value}`);
-    console.log(`Message: ${document.getElementById("message").value}`);
-    closeModal();
+    if( validText(firstName.value, regex.name, firstName) &
+        validText(lastName.value, regex.name, lastName) &
+        validText(email.value, regex.mail, email)){
+        console.log(`Prénom: ${firstName.value}`);
+        console.log(`Nom: ${lastName.value}`);0.
+        console.log(`Email: ${email.value}`);
+        console.log(`Message: ${document.getElementById("message").value}`);
+        closeModal();
+    }
+
+    
 })
+
+// validation d'un champ de texte
+ const validText = (entry, regex, field) => {
+    if (entry.match(regex) && entry.length >= 2) {
+      return true;
+    } else {
+      return false;
+    }
+  }

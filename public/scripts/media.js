@@ -30,12 +30,12 @@ class ImageFactory extends Media {
     constructor(data, name) {
         super(data);
         this.image = data.image;
+        this.alt = data.alt;
         let folderName = name.split(" ");
         if(folderName[0].includes("-")){
             folderName[0] = folderName[0].replace("-", " ");
         }
-        this.mediaHTML = `<img class="media__photo" tabIndex="0" alt="${this.title}" src="../images/${folderName[0]}/${this.image}"/>`
-
+        this.mediaHTML = `<img class="media__photo" tabIndex="0" alt="${this.alt}" src="../images/${folderName[0]}/${this.image}"/>`
     }
 }
 

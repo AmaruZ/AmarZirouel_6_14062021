@@ -122,7 +122,7 @@ h2 {
     height: 35px;
     position: fixed;
     bottom: 30px;
-    left: 25%;
+    left: calc(50% - 85px);
   }
 }
 
@@ -217,7 +217,6 @@ h2 {
 .anchor {
   display: none;
   position: fixed;
-  top: 0;
   height: 30px;
   background: #DB8876;
   color: #000;
@@ -229,12 +228,8 @@ h2 {
   text-align: center;
   border-radius: 5px;
   padding: 3px 10px;
-  left: 42%;
-}
-@media screen and (max-width: 480px) {
-  .anchor {
-    left: 27%;
-  }
+  top: 1%;
+  left: calc(50% + -90px);
 }
 
 .content {
@@ -550,9 +545,10 @@ h2 {
   }
 }
 .modal__textarea {
-  margin-bottom: 26px;
+  margin-bottom: 13px;
   font-size: 2.4rem;
   padding-left: 10px;
+  padding-top: 15px;
   border-radius: 5px;
   border: none;
 }
@@ -801,6 +797,22 @@ h2 {
 }
 .likes__total {
   margin-right: 5px;
+}
+
+.animation {
+  animation-duration: 0.5s;
+  animation-name: slide;
+  animation-iteration-count: 3;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(20px);
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -67,7 +67,6 @@ export class Lightbox {
       image.classList.add("lightbox__photo");
       image.src = src;
     } else {
-      console.log(src)
       container.innerHTML = `<video width="100" heigth="100" controls src="${src}" type="video/mp4" class="lightbox__video">Sorry, your browser doesn't support embedded videos.</video>`
     }
   }

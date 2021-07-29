@@ -4,6 +4,7 @@ import { fetchPhotographersJSON } from "./getData.js";
 import { Lightbox } from "./lightbox.js";
 import { Likes } from "./likes.js";
 import { MediaFactory } from "./media.js";
+import { openModal } from "./modal.js";
 
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -32,11 +33,16 @@ fetchPhotographersJSON()
             }
         }
         for(let i = data.media.length; i > 0; i--){
+            /*if(data.media[i-1].alt == undefined){
+                data.media[i-1].alt = data.media[i-1].title;
+            }*/
             if(data.media[i-1].photographerId == photographer.id){
                 let media = new MediaFactory().createMedia(data.media[i-1],photographer.name);
                 medias.push(media);
             }
         }
+        /*let data_json = JSON.stringify(data);
+        download(data_json, "test.json", "json");*/
     }) .finally( () =>{
         namePhotographer.innerHTML = photographer.name;
         localisationPhotographer.innerHTML = photographer.city + ", " + photographer.country;
@@ -49,7 +55,8 @@ fetchPhotographersJSON()
         avatarPhotographer.classList.add("infos__avatar");
         wrapperPhotographer.appendChild(avatarPhotographer);
         medias.forEach(media => addMediasInDOM(media));
-        dropDownBtn.addEventListener("click", showDropdown);
+        dropDownBtn.addEventListener("click", showDropdown); // ajout du dropdown au clic du bouton de tri des medias
+        document.querySelector(".contact__button").addEventListener("click", e => openModal(e)); // ajout de la modal au clic du bouton contactez moi
         Likes.init();
         Lightbox.init();
         pricePhotographer.innerHTML = `${photographer.price}€ / jour`
@@ -68,4 +75,22 @@ export const addMediasInDOM = (media) =>{
 
 export const flushMediasInDOM = () =>{
     wrapperMedias.innerHTML = "";
+}
+
+function download(data, filename, type) {
+    var file = new Blob([data], {type: type});
+    if (window.navigator.msSaveOrOpenBlob) // IE10+
+        window.navigator.msSaveOrOpenBlob(file, filename);
+    else { // Others
+        var a = document.createElement("a"),
+                url = URL.createObjectURL(file);
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function() {
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);  
+        }, 0); 
+    }
 }
