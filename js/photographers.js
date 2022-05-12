@@ -24,7 +24,7 @@ export let photographer = {};
 export let medias = [];
 
 
-fetchPhotographersJSON()
+fetchPhotographersJSON('../assets/data/FishEyeData.json')
     .then(data =>{
         for(let i = data.photographers.length; i > 0 ; i--){
             if(data.photographers[i-1].id === parseInt(photographerID)){

@@ -6,7 +6,7 @@ const spanTags = document.getElementsByClassName("navigation__link");
 
 export let photographers= [];
 
-fetchPhotographersJSON()
+fetchPhotographersJSON('./assets/data/FishEyeData.json')
     .then(data =>{
         for(let i = 0; i < data.photographers.length; i++){
             photographers[i] = data.photographers[i];

@@ -1,5 +1,5 @@
-export async function fetchPhotographersJSON(){
-    const response = await fetch("/assets/data/FishEyeData.json");
+export async function fetchPhotographersJSON(url){
+    const response = await fetch(url);
     const data = await response.json();
     return data;
 }
