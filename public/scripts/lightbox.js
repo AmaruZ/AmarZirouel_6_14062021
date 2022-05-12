@@ -49,7 +49,6 @@ export class Lightbox {
     dom.querySelector(".lightbox__close").addEventListener("click", this.closeLightbox.bind(this));
     dom.querySelector(".lightbox__next").addEventListener("click", this.nextMedia.bind(this));
     dom.querySelector(".lightbox__prev").addEventListener("click", this.prevMedia.bind(this));
-    dom.querySelector(".lightbox__close").focus();
     document.querySelector(".body-wrapper").style.display  = "none";
     return dom;
   }

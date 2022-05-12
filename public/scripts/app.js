@@ -55,6 +55,7 @@ const filterByTag = (tag) =>{
         tag.setAttribute("aria-label", `tag ${tag.textContent.slice(1)} désélectionné`)
         tag.setAttribute("aria-label", `tag ${tag.textContent.slice(1)}`)
         tag.removeAttribute("aria-selected");
+        tag.blur();
         photographers.forEach(photographer =>{
             addPhotographerInDOM(photographer);
         });
