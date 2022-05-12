@@ -40,7 +40,7 @@ const addPhotographerInDOM = (photographer) =>{
     divPhotographer.classList.add("photographer")
     wrapperPhotographers.appendChild(divPhotographer);
     divPhotographer.innerHTML=  `<a class="photographer__link" href="./pages/photographers.html?id=${photographer.id}">
-                                <img class="photographer__avatar" src="images/${addAvatarToPhotographer(photographer.name)}" alt="${photographer.name}">
+                                <img class="photographer__avatar" src="assets/images/${addAvatarToPhotographer(photographer.name)}" alt="${photographer.name}">
                                 <h2 class="photographer__name">${photographer.name}</h2></a>
                                 <p class="photographer__text" tabindex="0"><span class="photographer__localisation">${photographer.city}, ${photographer.country}</span>
                                 <span class="photographer__tagline">${photographer.tagline}</span>

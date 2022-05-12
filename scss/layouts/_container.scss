@@ -361,7 +361,7 @@
         }
     }
     &__close{
-        background: url(/public/images/close_modal.svg) center / 100% no-repeat;
+        background: url(/assets/images/close_modal.svg) center / 100% no-repeat;
         text-indent: 10000px;
         width: 42px;
         height: 42px;
@@ -445,7 +445,7 @@
     height: 100%;
     background-color: white;
     &__next, &__prev{
-        background: url(/public/images/arrow.svg) center center / 100% 100%;
+        background: url(/assets/images/arrow.svg) center center / 100% 100%;
         width: 30px;
         height: 48px;
         border: none;
@@ -470,7 +470,7 @@
     &__close{
         width: 42px;
         height: 42px;
-        background: url(/public/images/close.svg) center/100%;
+        background: url(/assets/images/close.svg) center/100%;
         border: none;
         text-indent: 10000px;
         cursor: pointer;

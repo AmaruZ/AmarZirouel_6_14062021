@@ -33,9 +33,6 @@ fetchPhotographersJSON()
             }
         }
         for(let i = data.media.length; i > 0; i--){
-            /*if(data.media[i-1].alt == undefined){
-                data.media[i-1].alt = data.media[i-1].title;
-            }*/
             if(data.media[i-1].photographerId == photographer.id){
                 let media = new MediaFactory().createMedia(data.media[i-1],photographer.name);
                 medias.push(media);
@@ -50,7 +47,7 @@ fetchPhotographersJSON()
         photographer.tags.forEach(tag => {
             tagsPhotographer.innerHTML+=`<span class="tags">#${tag}</span>` ;
         });
-        avatarPhotographer.setAttribute("src", "../images/"+ addAvatarToPhotographer(photographer.name));
+        avatarPhotographer.setAttribute("src", "../assets/images/"+ addAvatarToPhotographer(photographer.name));
         avatarPhotographer.classList.add("photographer__avatar");
         avatarPhotographer.classList.add("infos__avatar");
         wrapperPhotographer.appendChild(avatarPhotographer);
@@ -77,20 +74,20 @@ export const flushMediasInDOM = () =>{
     wrapperMedias.innerHTML = "";
 }
 
-function download(data, filename, type) {
-    var file = new Blob([data], {type: type});
-    if (window.navigator.msSaveOrOpenBlob) // IE10+
-        window.navigator.msSaveOrOpenBlob(file, filename);
-    else { // Others
-        var a = document.createElement("a"),
-                url = URL.createObjectURL(file);
-        a.href = url;
-        a.download = filename;
-        document.body.appendChild(a);
-        a.click();
-        setTimeout(function() {
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);  
-        }, 0); 
-    }
-}
+// function download(data, filename, type) {
+//     var file = new Blob([data], {type: type});
+//     if (window.navigator.msSaveOrOpenBlob) // IE10+
+//         window.navigator.msSaveOrOpenBlob(file, filename);
+//     else { // Others
+//         var a = document.createElement("a"),
+//                 url = URL.createObjectURL(file);
+//         a.href = url;
+//         a.download = filename;
+//         document.body.appendChild(a);
+//         a.click();
+//         setTimeout(function() {
+//             document.body.removeChild(a);
+//             window.URL.revokeObjectURL(url);  
+//         }, 0); 
+//     }
+// }
