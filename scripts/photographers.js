@@ -1,4 +1,3 @@
-import { setAvatarToPhotographer } from './setAvatarToPhotographer.js'
 import { showDropdown } from './dropDown.js'
 import { fetchPhotographersJSON } from './getData.js'
 import { Lightbox } from './lightbox.js'
@@ -44,9 +43,10 @@ fetchPhotographersJSON('../data/FishEyeData.json')
         photographer.tags.forEach((tag) => {
             tagsPhotographer.innerHTML += `<span class="tags">#${tag}</span>`
         })
+        // prettier-ignore
         avatarPhotographer.setAttribute(
             'src',
-            '../assets/' + setAvatarToPhotographer(photographer.name)
+            `../assets/Photographers ID Photos/${photographer.name.replace(' ', '').replace('-', '')}.jpg`
         )
         avatarPhotographer.classList.add('photographer__avatar')
         avatarPhotographer.classList.add('infos__avatar')
@@ -62,7 +62,6 @@ fetchPhotographersJSON('../data/FishEyeData.json')
 export const addMediasInDOM = (media) => {
     const mediaCard = document.createElement('div')
     mediaCard.classList.add('media__card')
-    //mediaCard.setAttribute("tabIndex", "0");
     wrapperMedias.appendChild(mediaCard)
     mediaCard.innerHTML = `${media.mediaHTML}
                             <div class="media__text"><span class="media__title">${media.title}</span>

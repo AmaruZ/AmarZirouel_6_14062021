@@ -1,5 +1,4 @@
 import { fetchPhotographersJSON } from './getData.js'
-import { setAvatarToPhotographer } from './setAvatarToPhotographer.js'
 
 const wrapperPhotographers = document.querySelector('.wrapper')
 const spanTags = document.getElementsByClassName('navigation__link')
@@ -41,28 +40,18 @@ const addPhotographerInDOM = (photographer) => {
     const divPhotographer = document.createElement('article')
     divPhotographer.classList.add('photographer')
     wrapperPhotographers.appendChild(divPhotographer)
-    divPhotographer.innerHTML = `<a class="photographer__link" href="./pages/photographers.html?id=${
-        photographer.id
-    }">
-                                <img class="photographer__avatar" src="assets/${setAvatarToPhotographer(
-                                    photographer.name
-                                )}" alt="${photographer.name}">
+    // prettier-ignore
+    divPhotographer.innerHTML = `<a class="photographer__link" href="./pages/photographers.html?id=${photographer.id}">
+                                <img class="photographer__avatar" src="assets/Photographers ID Photos/${photographer.name.replace(' ', '').replace('-', '')}.jpg" alt="${photographer.name}">
                                 <h2 class="photographer__name">${photographer.name}</h2></a>
-                                <p class="photographer__text" tabindex="0"><span class="photographer__localisation">${
-                                    photographer.city
-                                }, ${photographer.country}</span>
+                                <p class="photographer__text" tabindex="0"><span class="photographer__localisation">${photographer.city}, ${photographer.country}</span>
                                 <span class="photographer__tagline">${photographer.tagline}</span>
-                                <span class="photographer__price">${
-                                    photographer.price
-                                }€/jour</span></p>
-                                <div class="photographer__tags">${tagInList(
-                                    photographer.tags
-                                )}</div>`
+                                <span class="photographer__price">${photographer.price}€/jour</span></p>
+                                <div class="photographer__tags">${tagInList(photographer.tags)}</div>`
 }
 
 const filterByTag = (tag) => {
     flushPhotographersInDOM()
-    console.log(tag)
     if (tag.classList.contains('tags-active')) {
         tag.classList.toggle('tags-active')
         tag.setAttribute('aria-label', `tag ${tag.textContent.slice(1)} désélectionné`)
@@ -89,7 +78,6 @@ const filterByTag = (tag) => {
         tag.setAttribute('aria-label', `tag ${tag.textContent.slice(1)} sélectionné`)
         tag.setAttribute('aria-selected', 'true')
         for (let i = 0; i < photographers.length; i++) {
-            console.log(photographers)
             for (let j = photographers[i].tags.length; j > 0; j--) {
                 console.log(photographers[i])
                 if (
