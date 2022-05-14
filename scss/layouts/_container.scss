@@ -1,15 +1,15 @@
-.body-wrapper{
+.body-wrapper {
     margin-left: auto;
     margin-right: auto;
     width: fit-content;
     width: -moz-fit-content;
-    @include mobile{
+    @include mobile {
         display: flex;
         flex-direction: column;
     }
 }
 
-.anchor{
+.anchor {
     display: none;
     position: fixed;
 
@@ -27,144 +27,140 @@
     top: 1%;
     left: calc(50% + -90px);
 }
-.content{
+.content {
     padding-top: 40px;
     margin-left: 100px;
     margin-right: 100px;
     width: 1240px;
-    @include mobile{
+    @include mobile {
         width: auto;
         padding: 0;
         margin: auto;
     }
-    &__medias{
+    &__medias {
         margin-left: auto;
         margin-right: auto;
         width: 1240px;
-        @include mobile{
+        @include mobile {
             width: 100%;
         }
     }
 }
 
-.main-title{
-    @include mobile{
+.main-title {
+    @include mobile {
         position: absolute;
         top: 50px;
         right: 22px;
     }
 }
 
-
-.wrapper{
+.wrapper {
     padding-top: 100px;
     display: grid;
-    grid-template-columns: repeat( 3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     width: 100%;
-    @include mobile{
+    @include mobile {
         display: flex;
         flex-direction: column;
         padding-top: 40px;
-        
-        
     }
 }
 
-
-.photographer{
+.photographer {
     width: 342px;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     margin-bottom: 50px;
-    &__link{
+    &__link {
         display: flex;
         flex-flow: column nowrap;
         align-items: center;
     }
-    &__avatar{
+    &__avatar {
         border-radius: 50%;
         width: 200px;
         height: 200px;
         object-fit: cover;
     }
-    &__text{
+    &__text {
         display: flex;
         flex-flow: column nowrap;
         align-items: center;
     }
-    &__localisation{
+    &__localisation {
         margin-bottom: 3px;
     }
-    &__tagline{
+    &__tagline {
         margin-bottom: 3px;
     }
-    &__price{
+    &__price {
         margin-bottom: 10px;
     }
 }
 
-.infos{
+.infos {
     display: flex;
-    position:relative;
+    position: relative;
     width: 100%;
     padding-top: 56px;
     padding-left: 50px;
-    background-color: #FAFAFA;
+    background-color: #fafafa;
     border-radius: 5px;
     margin-bottom: 20px;
-    @include mobile{
-        background-color: #FFF;
+    @include mobile {
+        background-color: #fff;
         padding-left: 20px;
     }
-    &__text{
+    &__text {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         margin-right: 20px;
     }
-    &__name{
+    &__name {
         font-size: 4rem;
-        color: #D3573C;
+        color: #d3573c;
         margin-bottom: 20px;
-        @include mobile{
+        @include mobile {
             font-size: 3.6rem;
             margin-bottom: 10px;
             width: 228px;
             line-height: 3rem;
         }
     }
-    &__localisation{
+    &__localisation {
         color: $color-primary;
         font-size: 2.4rem;
         margin-bottom: 19px;
         font-weight: 400;
-        @include mobile{
+        @include mobile {
             font-size: 1.3rem;
             margin-bottom: 5px;
         }
     }
-    &__tagline{
+    &__tagline {
         font-size: 1.8rem;
         line-height: 2.3rem;
         font-weight: 300;
         color: #525252;
         margin-bottom: 15px;
-        @include mobile{
+        @include mobile {
             font-size: 1.3rem;
-            line-height: 1.7rem;   
+            line-height: 1.7rem;
         }
     }
-    &__tags{
+    &__tags {
         margin-bottom: 48px;
     }
-    &__avatar{
+    &__avatar {
         position: absolute;
         right: 114px;
         width: 150px;
         height: 150px;
         object-fit: cover;
-        @include mobile{
+        @include mobile {
             top: 30px;
             right: 0px;
             width: 100px;
@@ -173,13 +169,13 @@
     }
 }
 
-.sort{
+.sort {
     display: flex;
-    @include mobile{
-        display: none;   
+    @include mobile {
+        display: none;
     }
-    &__title{
-        font-family: "DM Sans";
+    &__title {
+        font-family: 'DM Sans';
         font-style: normal;
         font-weight: bold;
         font-size: 18px;
@@ -189,12 +185,11 @@
         margin-bottom: 58px;
     }
 
-    
-    &__dropdown{
+    &__dropdown {
         position: relative;
     }
-    &__options{
-        background-color: #901C1C;
+    &__options {
+        background-color: #901c1c;
         display: none;
         position: absolute;
         top: 0;
@@ -203,142 +198,140 @@
 
         border-radius: 5px;
     }
-    &__option{
+    &__option {
         background-color: $color-primary;
-        color: #FAFAFA;
-        font-family: "DM Sans";
+        color: #fafafa;
+        font-family: 'DM Sans';
         width: 170px;
         font-size: 1.8rem;
         cursor: pointer;
         padding: 20px;
-        &-1{
+        &-1 {
             border-top-left-radius: 5px;
             border-top-right-radius: 5px;
             display: flex;
             justify-content: space-between;
             padding-top: 23px;
-            
         }
-        &-2{
+        &-2 {
             position: relative;
             text-align: left;
         }
-        &-2::before{
-            content: "";
+        &-2::before {
+            content: '';
             width: 85%;
             height: 1px;
-            background-color: #FAFAFA;
+            background-color: #fafafa;
             position: absolute;
             left: 7.5%;
             top: 0;
         }
-        &-3::before{
-            content: "";
+        &-3::before {
+            content: '';
             width: 85%;
             height: 1px;
-            background-color: #FAFAFA;
+            background-color: #fafafa;
             position: absolute;
             left: 7.5%;
             top: 0;
         }
-        &-3{
+        &-3 {
             position: relative;
             border-bottom-left-radius: 5px;
             border-bottom-right-radius: 5px;
             text-align: left;
         }
-
     }
-    &__show{
+    &__show {
         display: flex;
         flex-direction: column;
         height: 170px;
     }
 }
 
-.modal{
+.modal {
     display: none;
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.4);
     width: 100vw;
     height: 100vh;
     justify-content: center;
     align-items: center;
-    @include mobile{
+    @include mobile {
         border-radius: 5px;
     }
-    &__header{
+    &__header {
         display: flex;
         justify-content: space-between;
     }
-    &__wrapper{
-        background-color: #DB8876;
+    &__wrapper {
+        background-color: #db8876;
         width: 669px;
         height: 900px;
         padding: 35px;
-        @include mobile{
+        @include mobile {
             padding: 20px;
             height: 100%;
             width: 100%;
         }
     }
-    &__title, &__photographer{
+    &__title,
+    &__photographer {
         color: black;
         font-size: 6.4rem;
         margin-bottom: 20px;
         line-height: 70px;
-        @include mobile{
+        @include mobile {
             font-size: 3.6rem;
             line-height: 4.67rem;
             margin-bottom: 12px;
         }
     }
-    &__photographer{
+    &__photographer {
         margin-top: 9px;
     }
-    &__label{
-        font-family: "DM Sans";
+    &__label {
+        font-family: 'DM Sans';
         font-size: 3.6rem;
-        color: #312E2E;
-        @include mobile{
+        color: #312e2e;
+        @include mobile {
             font-size: 2.4rem;
             margin-top: 14px;
             margin-bottom: 4px;
         }
-
     }
-    &__input{
+    &__input {
         height: 68px;
         font-size: 2.4rem;
         padding-left: 10px;
         border-radius: 5px;
         border: none;
-        background: #FFF;
-        @include mobile{
+        background: #fff;
+        @include mobile {
             height: 52px;
         }
     }
-    &__textarea{
+    &__textarea {
         margin-bottom: 13px;
         font-size: 2.4rem;
         padding-left: 10px;
         padding-top: 15px;
         border-radius: 5px;
         border: none;
-        @include mobile{
-            margin-top: 10px;   
+        @include mobile {
+            margin-top: 10px;
         }
     }
 
-    &__btn{
+    &__btn {
         width: 170px;
         height: 69px;
         background-color: $color-primary;
         color: white;
         font-size: 2rem;
-        font-family: "DM Sans";
+        font-family: 'DM Sans';
         font-style: normal;
         font-weight: bold;
         line-height: 2.6rem;
@@ -348,11 +341,12 @@
         border-radius: 5px;
         box-shadow: none;
         border: none;
-        &:hover, &:focus{
+        &:hover,
+        &:focus {
             background-color: $color-secondary;
             color: #000;
         }
-        @include mobile{
+        @include mobile {
             height: 35px;
             font-size: 1.8rem;
             line-height: 2.33rem;
@@ -360,92 +354,90 @@
             margin-right: auto;
         }
     }
-    &__close{
-        background: url(/assets/images/close_modal.svg) center / 100% no-repeat;
+    &__close {
+        background: url(/assets/close_modal.svg) center / 100% no-repeat;
         text-indent: 10000px;
         width: 42px;
         height: 42px;
         border: none;
         cursor: pointer;
     }
-
 }
 
-.form{
+.form {
     display: flex;
     flex-direction: column;
 }
 
-.medias{
-    &__wrapper{
+.medias {
+    &__wrapper {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        @include mobile{
+        @include mobile {
             display: flex;
             flex-direction: column;
         }
     }
 }
 
-.media{
-    &__card{
+.media {
+    &__card {
         width: 350px;
         margin-bottom: 20px;
-        @include mobile{
+        @include mobile {
             margin-left: auto;
-            margin-right: auto;   
+            margin-right: auto;
         }
     }
-    &__photo{
+    &__photo {
         width: 100%;
         height: 300px;
         border-radius: 5px;
         object-fit: cover;
         cursor: pointer;
         margin-bottom: 5px;
-        @include mobile{
+        @include mobile {
             height: 190px;
         }
     }
 
-    &__text{
+    &__text {
         display: flex;
         justify-content: space-between;
         width: 100%;
-        font-family: "DM Sans";
+        font-family: 'DM Sans';
         font-weight: 400;
         font-size: 2.1rem;
         color: $color-primary;
-        @include mobile{
-            font-size: 1.4rem;   
+        @include mobile {
+            font-size: 1.4rem;
         }
     }
-    &__heart{
+    &__heart {
         cursor: pointer;
     }
-    &__likes{
+    &__likes {
         display: flex;
         align-items: center;
         justify-content: space-evenly;
         width: 60px;
 
-        
-        @include mobile{
-            font-weight: 500;   
+        @include mobile {
+            font-weight: 500;
         }
     }
-
 }
 
-.lightbox{
+.lightbox {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: white;
-    &__next, &__prev{
-        background: url(/assets/images/arrow.svg) center center / 100% 100%;
+    &__next,
+    &__prev {
+        background: url(/assets/arrow.svg) center center / 100% 100%;
         width: 30px;
         height: 48px;
         border: none;
@@ -455,36 +447,35 @@
         margin-top: -14px;
         text-indent: 10000px;
         cursor: pointer;
-        @include mobile{
+        @include mobile {
             height: 23px;
             width: 23px;
             right: 3%;
         }
-
     }
-    &__prev{
+    &__prev {
         right: auto;
         left: 1%;
         transform: rotate(180deg);
     }
-    &__close{
+    &__close {
         width: 42px;
         height: 42px;
-        background: url(/assets/images/close.svg) center/100%;
+        background: url(/assets/close.svg) center/100%;
         border: none;
         text-indent: 10000px;
         cursor: pointer;
         position: fixed;
         top: 10%;
         right: 1%;
-        @include mobile{
+        @include mobile {
             top: 25%;
             width: 23px;
             height: 23px;
             right: 3%;
         }
     }
-    &__container{
+    &__container {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -492,51 +483,49 @@
         margin-right: auto;
         min-height: 100vh;
         width: 90%;
-        @include mobile{
+        @include mobile {
             width: 75vw;
             height: 40vh;
         }
     }
-    &__photo{
+    &__photo {
         max-width: 100%;
         height: 90vh;
         object-fit: cover;
-        @include mobile{
+        @include mobile {
             height: 40vh;
             width: 75vw;
             border-radius: 5px;
         }
     }
-        &__video{
-            width: 90vw;
-            max-width: 100%;
+    &__video {
+        width: 90vw;
+        max-width: 100%;
         height: 90vh;
         object-fit: cover;
-        @include mobile{
+        @include mobile {
             height: 40vh;
             width: 75vw;
             border-radius: 5px;
         }
     }
-
 }
 
-.chevron{
-    &_down{
+.chevron {
+    &_down {
         width: 16px;
         height: 10px;
         align-self: center;
     }
-    &_up{
+    &_up {
         width: 16px;
         height: 10px;
         transform: rotate(180deg);
         align-self: center;
     }
-    
 }
 
-.likes{
+.likes {
     position: fixed;
     bottom: 0;
     right: 5%;
@@ -550,33 +539,33 @@
     border-top-right-radius: 5px;
     font-size: 2.4rem;
     align-items: center;
-    font-family: "DM Sans";
+    font-family: 'DM Sans';
     font-weight: 500;
     justify-content: space-between;
-    @include mobile{
+    @include mobile {
         display: none;
     }
-    &__numbers{
+    &__numbers {
         display: flex;
         align-items: center;
     }
-    &__total{
+    &__total {
         margin-right: 5px;
     }
 }
 
-.animation{
+.animation {
     animation-duration: 0.5s;
     animation-name: slide;
     animation-iteration-count: 3;
     animation-direction: alternate-reverse;
 }
 
-@keyframes slide{
-    from{
+@keyframes slide {
+    from {
         transform: translateX(0);
     }
-    to{
-    transform: translateX(20px);
+    to {
+        transform: translateX(20px);
     }
 }
