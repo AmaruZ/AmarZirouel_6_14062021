@@ -1,12 +1,13 @@
 import { Lightbox } from './lightbox.js'
 import { Likes } from './likes.js'
-import { addMediasInDOM, flushMediasInDOM, medias } from './photographers.js'
+import { addMediasInDOM, flushMediasInDOM, photographerMedias } from './photographers.js'
 const dropDownBtn = document.getElementById('sort-by')
 const dropDownContent = document.querySelector('.sort__options')
 const dropDownOptions = document.querySelectorAll('.sort__option')
 const selectedOptions = document.querySelector('.sort__option__selected')
 
 // Afficher la liste deroulante pour trier les medias
+
 export const showDropdown = () => {
     dropDownBtn.setAttribute('aria-expanded', 'true')
     dropDownContent.classList.add('sort__show')
@@ -14,6 +15,7 @@ export const showDropdown = () => {
 }
 
 // Ajoute les event listeners sur la liste deroulante pour pouvoir trier en fonction de l'option choisie
+
 dropDownOptions.forEach((option) =>
     option.addEventListener('click', (e) => {
         e.stopPropagation()
@@ -40,19 +42,19 @@ const sortMedias = (by) => {
     switch (by) {
         case 'sort__option-1':
             {
-                medias.sort((a, b) => b.likes - a.likes)
+                photographerMedias.sort((a, b) => b.likes - a.likes)
                 selectedOptions.innerHTML = `Popularité<i class="fas fa-chevron-down chevron__down"></i>`
             }
             break
         case 'sort__option-2':
             {
-                medias.sort((a, b) => new Date(b.date) - new Date(a.date))
+                photographerMedias.sort((a, b) => new Date(b.date) - new Date(a.date))
                 selectedOptions.innerHTML = `Date<i class="fas fa-chevron-down chevron__down"></i>`
             }
             break
         case 'sort__option-3':
             {
-                medias.sort((a, b) => {
+                photographerMedias.sort((a, b) => {
                     if (a.title.toLowerCase() < b.title.toLowerCase()) {
                         return -1
                     } else {
@@ -64,7 +66,7 @@ const sortMedias = (by) => {
             break
     }
     flushMediasInDOM()
-    medias.forEach((media) => addMediasInDOM(media))
+    photographerMedias.forEach((media) => addMediasInDOM(media))
     dropDownBtn.setAttribute('aria-expanded', 'false')
     Likes.init()
     Lightbox.init()

@@ -1,5 +1,3 @@
-import { photographer } from './photographers.js'
-
 const closeModalBtn = document.querySelector('.modal__close')
 const modal = document.querySelector('.modal')
 const modalTitle = document.querySelector('.modal__title')
@@ -12,13 +10,13 @@ const regex = {
     name: /^[a-zA-ZÀ-Ÿà-ÿ]+([\s'.-][a-zA-ZÀ-Ÿà-ÿ]+)?([\s'.-][a-zA-ZÀ-Ÿà-ÿ]+)*$/,
 }
 
-export const openModal = (e) => {
+export const openModal = (photographerName) => (e) => {
     e.preventDefault()
     modal.style.display = 'flex'
     modal.setAttribute('aria-hidden', 'false')
     modal.setAttribute('aria-modal', 'true')
     closeModalBtn.focus()
-    modalTitle.innerHTML = `Contactez-moi<br><span class="modal__photographer">${photographer.name}</span>`
+    modalTitle.innerHTML = `Contactez-moi<br><span class="modal__photographer">${photographerName}</span>`
 }
 
 const closeModal = () => {
@@ -26,10 +24,11 @@ const closeModal = () => {
     modal.setAttribute('aria-hidden', 'true')
     modal.setAttribute('aria-modal', 'false')
 }
+
 closeModalBtn.addEventListener('click', closeModal)
 
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.getAttribute('aria-hidden') == 'false') {
+    if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
         closeModal()
     }
 })
@@ -37,13 +36,12 @@ document.addEventListener('keydown', (e) => {
 submitBtn.addEventListener('click', (e) => {
     e.preventDefault()
     if (
-        validText(firstName.value, regex.name, firstName) &
-        validText(lastName.value, regex.name, lastName) &
-        validText(email.value, regex.mail, email)
+        validText(firstName.value, regex.name, 'First name') &
+        validText(lastName.value, regex.name, 'Last name') &
+        validText(email.value, regex.mail, 'Email')
     ) {
         console.log(`Prénom: ${firstName.value}`)
         console.log(`Nom: ${lastName.value}`)
-        0
         console.log(`Email: ${email.value}`)
         console.log(`Message: ${document.getElementById('message').value}`)
         closeModal()
@@ -51,10 +49,11 @@ submitBtn.addEventListener('click', (e) => {
 })
 
 // validation d'un champ de texte
-const validText = (entry, regex) => {
+const validText = (entry, regex, field) => {
     if (entry.match(regex) && entry.length >= 2) {
         return true
     } else {
+        console.log(`${field} not valid`)
         return false
     }
 }

@@ -18,45 +18,46 @@ const wrapperMedias = document.querySelector('.medias__wrapper')
 const pricePhotographer = document.querySelector('.likes__price')
 const dropDownBtn = document.getElementById('sort-by')
 
-export let photographer = {}
-export let medias = []
+let photographerInfos = {}
+export let photographerMedias = []
 
 fetchPhotographersJSON('../data/FishEyeData.json')
     .then((data) => {
-        for (let i = data.photographers.length; i > 0; i--) {
-            if (data.photographers[i - 1].id === parseInt(photographerID)) {
-                photographer = data.photographers[i - 1]
-                break
+        data.photographers.forEach((photographer) => {
+            if (photographer.id === parseInt(photographerID)) photographerInfos = photographer
+        })
+        data.media.forEach((media) => {
+            if (media.photographerId === photographerInfos.id) {
+                photographerMedias.push(
+                    new MediaFactory().createMedia(media, photographerInfos.name)
+                )
             }
-        }
-        for (let i = data.media.length; i > 0; i--) {
-            if (data.media[i - 1].photographerId == photographer.id) {
-                let media = new MediaFactory().createMedia(data.media[i - 1], photographer.name)
-                medias.push(media)
-            }
-        }
+        })
     })
-    .finally(() => {
-        namePhotographer.innerHTML = photographer.name
-        localisationPhotographer.innerHTML = photographer.city + ', ' + photographer.country
-        taglinePhotographer.innerHTML = photographer.tagline
-        photographer.tags.forEach((tag) => {
+    .then(() => {
+        namePhotographer.innerHTML = photographerInfos.name
+        localisationPhotographer.innerHTML =
+            photographerInfos.city + ', ' + photographerInfos.country
+        taglinePhotographer.innerHTML = photographerInfos.tagline
+        photographerInfos.tags.forEach((tag) => {
             tagsPhotographer.innerHTML += `<span class="tags">#${tag}</span>`
         })
         // prettier-ignore
         avatarPhotographer.setAttribute(
             'src',
-            `../assets/Photographers ID Photos/${photographer.name.replace(' ', '').replace('-', '')}.jpg`
+            `../assets/Photographers ID Photos/${photographerInfos.name.replace(' ', '').replace('-', '')}.jpg`
         )
         avatarPhotographer.classList.add('photographer__avatar')
         avatarPhotographer.classList.add('infos__avatar')
         wrapperPhotographer.appendChild(avatarPhotographer)
-        medias.forEach((media) => addMediasInDOM(media))
+        photographerMedias.forEach((media) => addMediasInDOM(media))
         dropDownBtn.addEventListener('click', showDropdown) // ajout du dropdown au clic du bouton de tri des medias
-        document.querySelector('.contact__button').addEventListener('click', (e) => openModal(e)) // ajout de la modal au clic du bouton contactez moi
+        document
+            .querySelector('.contact__button')
+            .addEventListener('click', openModal(photographerInfos.name)) // ajout de la modal au clic du bouton contactez moi
         Likes.init()
         Lightbox.init()
-        pricePhotographer.innerHTML = `${photographer.price}€ / jour`
+        pricePhotographer.innerHTML = `${photographerInfos.price}€ / jour`
     })
 
 export const addMediasInDOM = (media) => {
