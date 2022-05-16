@@ -241,6 +241,9 @@
             border-bottom-right-radius: 5px;
             text-align: left;
         }
+        &:hover {
+            background-color: #db8876;
+        }
     }
     &__show {
         display: flex;
@@ -344,6 +347,7 @@
         &:hover,
         &:focus {
             background-color: $color-secondary;
+            border: 3px solid $color-primary;
             color: #000;
         }
         @include mobile {

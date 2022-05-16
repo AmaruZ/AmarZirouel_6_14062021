@@ -468,6 +468,9 @@ h2 {
   border-bottom-right-radius: 5px;
   text-align: left;
 }
+.sort__option:hover {
+  background-color: #db8876;
+}
 .sort__show {
   display: flex;
   flex-direction: column;
@@ -580,6 +583,7 @@ h2 {
 }
 .modal__btn:hover, .modal__btn:focus {
   background-color: #DB8876;
+  border: 3px solid #901C1C;
   color: #000;
 }
 @media screen and (max-width: 480px) {
