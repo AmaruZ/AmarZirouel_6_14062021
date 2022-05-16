@@ -47,6 +47,7 @@ fetchPhotographersJSON('../data/FishEyeData.json')
             'src',
             `../assets/Photographers ID Photos/${photographerInfos.name.replace(' ', '').replace('-', '')}.jpg`
         )
+        avatarPhotographer.setAttribute('alt', 'Avatar ' + photographerInfos.name)
         avatarPhotographer.classList.add('photographer__avatar')
         avatarPhotographer.classList.add('infos__avatar')
         wrapperPhotographer.appendChild(avatarPhotographer)
@@ -61,12 +62,12 @@ fetchPhotographersJSON('../data/FishEyeData.json')
     })
 
 export const addMediasInDOM = (media) => {
-    const mediaCard = document.createElement('div')
+    const mediaCard = document.createElement('figure')
     mediaCard.classList.add('media__card')
     wrapperMedias.appendChild(mediaCard)
     mediaCard.innerHTML = `${media.mediaHTML}
-                            <div class="media__text"><span class="media__title">${media.title}</span>
-                            <div class="media__likes"><p class="media__likes-number">${media.likes} </p><i class="far fa-heart media__heart"></i></div></div>`
+                            <div class="media__text"><figcaption class="media__title">${media.title}</figcaption>
+                            <span class="media__likes"><p class="media__likes-number">${media.likes} </p><i class="far fa-heart media__heart"></i></span></div>`
 }
 
 export const flushMediasInDOM = () => {
