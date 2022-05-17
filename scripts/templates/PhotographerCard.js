@@ -17,7 +17,8 @@ class PhotographerCard {
                                         <span class="photographer__price">${this._photographer.price}€/jour</span>
                                     </p>
                                     <div class="photographer__tags">${this._photographer.tags.map(tag => {
-                                        return `<span class="tags" tabindex="0" aria-label="tag">#${tag.charAt(0).toUpperCase()}${tag.slice(1)}</span>`
+                                        const tagWithUpperCase = tag.charAt(0).toUpperCase() + tag.slice(1)
+                                        return `<span class="tags" tabindex="0" aria-label="tag">#${tagWithUpperCase}</span>`
                                         }).join('')}
                                     </div>`
 
