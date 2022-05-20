@@ -16,11 +16,7 @@ class PhotographerCard {
                                         <span class="photographer__tagline">${this._photographer.tagline}</span>
                                         <span class="photographer__price">${this._photographer.price}€/jour</span>
                                     </p>
-                                    <div class="photographer__tags">${this._photographer.tags.map(tag => {
-                                        const tagWithUpperCase = tag.charAt(0).toUpperCase() + tag.slice(1)
-                                        return `<span class="tags" tabindex="0" aria-label="tag">#${tagWithUpperCase}</span>`
-                                        }).join('')}
-                                    </div>`
+                                    <div class="photographer__tags">${this._photographer.tags }</div>`
 
         $wrapper.innerHTML = photographerCard
         return $wrapper
