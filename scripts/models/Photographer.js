@@ -28,6 +28,11 @@ class Photographer {
 
     get tags() {
         return this._tags
+            .map((tag) => {
+                const tagWithUpperCase = tag.charAt(0).toUpperCase() + tag.slice(1)
+                return `<span class="tags" tabindex="0" aria-label="tag">#${tagWithUpperCase}</span>`
+            })
+            .join('')
     }
 
     get tagline() {
