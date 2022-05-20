@@ -35,14 +35,15 @@ class Media {
     }
 }
 
-class Image extends Media {
+class Picture extends Media {
     constructor(data, name) {
         super(data, name)
         this._image = data.image
     }
 
-    get image() {
-        return `/assets/${this._name}/${this._image}`
+    get media() {
+        const firstName = this._name.split(' ')[0].replace('-', ' ')
+        return `<img class="media__photo" tabIndex="0" alt="${this.alt}" src="/assets/${firstName}/${this._image}"/>`
     }
 }
 
@@ -52,7 +53,8 @@ class Video extends Media {
         this._video = data.video
     }
 
-    get video() {
-        return `/assets/${this._name}/${this._video}`
+    get media() {
+        const firstName = this._name.split(' ')[0].replace('-', ' ')
+        return ` <video controls width="350" heigth="400" class="media__photo" tabIndex="0" src="/assets/${firstName}/${this._video}#t=0.1" type="video/mp4" >Sorry, your browser doesn't support embedded videos.</video>`
     }
 }
