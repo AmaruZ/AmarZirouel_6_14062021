@@ -37,7 +37,7 @@ class PhotographersPage {
         })
 
         this.$priceWrapper.innerHTML = `${PhotographerInfos.price}€ / jour`
-        this.$dropdownButton.addEventListener('click', showDropdown)
+        Dropdown.init(Medias)
         Lightbox.init()
         Likes.init()
     }
