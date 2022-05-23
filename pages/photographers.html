@@ -21,16 +21,6 @@
         </header>
         <main class="content__medias" aria-hidden="false">
 
-            <section class="infos">
-                <div class="infos__text" tabindex="0">
-                    <h1 class="infos__name"></h1>
-                    <span class="infos__localisation"></span>
-                    <span class="infos__tagline"></span>
-                    <div class="infos__tags"></div>
-                </div>
-                <a href="#modal" class="contact__button">Contactez-moi</a>
-            </section>
-
             <section class="medias">
                 <div class="sort">
                     <label for="sort-by" class="sort__title">Trier par</label>
@@ -88,7 +78,28 @@
             </div>
         </main>
     </div>
-    <script src="../scripts/photographers.js" type="module"></script>
+    <!-- Factories -->
+    <script src="../scripts/factories/MediasFactory.js"></script>
+
+    <!-- Models -->
+    <script src="../scripts/models/Photographer.js"></script>
+    <script src="../scripts/models/Media.js"></script>
+
+    <!-- Templates -->
+    <script src="../scripts/templates/PhotographerCard.js"></script>
+    <script src="../scripts/templates/MediaCard.js"></script>
+
+    <!-- Api -->
+    <script src="../scripts/api/Api.js"></script>
+
+    <!-- Utils -->
+    <script src="../scripts/utils/Dropdown.js"></script>
+    <script src="../scripts/utils/Lightbox.js"></script>
+    <script src="../scripts/utils/Likes.js"></script>
+    <script src="../scripts/utils/Modal.js"></script>
+
+    <!-- Entry point -->
+    <script src="../scripts/pages/photographers.js"></script>
 </body>
 
 </html>

@@ -26,6 +26,10 @@ class Photographer {
         return this._country
     }
 
+    get localisation() {
+        return `${this._city}, ${this._country}`
+    }
+
     get tags() {
         return this._tags
             .map((tag) => {
