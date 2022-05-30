@@ -37,7 +37,7 @@ class PhotographerCard {
                                         <span class="infos__tagline">${this._photographer.tagline}</span>
                                         <div class="infos__tags">${this._photographer.tags}</div>
                                     </div>
-                                    <img src="..${this._photographer.portrait}" alt="Avatar ${this._photographer.name}" class="photographer__avatar infos__avatar">
+                                    <img src="../${this._photographer.portrait}" alt="Avatar ${this._photographer.name}" class="photographer__avatar infos__avatar">
                                     `
 
         $wrapper.innerHTML = photographerCard
