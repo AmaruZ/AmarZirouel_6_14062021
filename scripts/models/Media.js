@@ -43,7 +43,7 @@ class Picture extends Media {
 
     get media() {
         const firstName = this._name.split(' ')[0].replace('-', ' ')
-        return `<img class="media__photo" tabIndex="0" alt="${this.alt}" src="/assets/${firstName}/${this._image}"/>`
+        return `<img class="media__photo" tabIndex="0" alt="${this.alt}" src="./assets/${firstName}/${this._image}"/>`
     }
 }
 
@@ -55,6 +55,6 @@ class Video extends Media {
 
     get media() {
         const firstName = this._name.split(' ')[0].replace('-', ' ')
-        return ` <video controls width="350" heigth="400" class="media__photo" tabIndex="0" src="/assets/${firstName}/${this._video}#t=0.1" type="video/mp4" >Sorry, your browser doesn't support embedded videos.</video>`
+        return ` <video controls width="350" heigth="400" class="media__photo" tabIndex="0" src="./assets/${firstName}/${this._video}#t=0.1" type="video/mp4" >Sorry, your browser doesn't support embedded videos.</video>`
     }
 }
