@@ -10,7 +10,7 @@ const regex = {
     name: /^[a-zA-ZÀ-Ÿà-ÿ]+([\s'.-][a-zA-ZÀ-Ÿà-ÿ]+)?([\s'.-][a-zA-ZÀ-Ÿà-ÿ]+)*$/,
 }
 
-export const openModal = (photographerName) => (e) => {
+const openModal = (photographerName) => (e) => {
     e.preventDefault()
     modal.style.display = 'flex'
     modal.setAttribute('aria-hidden', 'false')

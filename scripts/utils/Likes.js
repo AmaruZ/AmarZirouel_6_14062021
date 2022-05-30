@@ -1,4 +1,4 @@
-export class Likes {
+class Likes {
     static init() {
         const likes = Array.from(document.querySelectorAll('.media__likes'))
         const total = likes.map((like) => parseInt(like.innerText))

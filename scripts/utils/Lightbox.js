@@ -2,7 +2,7 @@
  * @property {HTMLElement} element
  * @property {string[]} gallery
  */
-export class Lightbox {
+class Lightbox {
     static init() {
         const photos = Array.from(document.querySelectorAll('.media__photo'))
         const gallery = photos.map((photo) => photo.getAttribute('src'))

@@ -611,7 +611,8 @@ h2 {
 
 .medias__wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 350px);
+  justify-content: space-between;
 }
 @media screen and (max-width: 480px) {
   .medias__wrapper {
